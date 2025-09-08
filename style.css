@@ -9,3 +9,41 @@ h2 { color:#002147; border-bottom:2px solid #f0b429; display:inline-block; paddi
 .tarjeta { padding:15px; margin:15px 0; background:#e6e6e6; border-radius:5px;}
 ul { padding-left:20px;}
 iframe { border:1px solid #ccc; border-radius:5px;}
+
+/* 🎨 Estilos generales (modo claro por defecto) */
+body {
+    background-color: #ffffff;
+    color: #222222;
+    font-family: Arial, sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Botón de modo oscuro */
+.toggle-darkmode {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 🌙 Estilos en modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Ejemplo: tarjetas y secciones */
+.dark-mode .tarjeta {
+    background: #1e1e1e;
+    border: 1px solid #333;
+}
+
+.dark-mode a {
+    color: #9bb8ff;
+}
+
