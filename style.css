@@ -174,3 +174,21 @@ body.dark-mode {
     }
 }
 
+/* Footer - aviso de privacidad */
+#privacidad {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #666666; /* color modo claro */
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* Footer en modo oscuro */
+body.dark-mode #privacidad {
+    color: #aaaaaa; /* texto más claro para modo oscuro */
+    background-color: #121212;
+    border-top-color: #333;
+}
+
