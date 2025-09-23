@@ -11,7 +11,6 @@ body {
     transition: background-color 0.4s, color 0.4s;
 }
 
-/* Encabezado / Portada */
 header.hero {
     text-align: center;
     padding: 50px 20px;
@@ -19,20 +18,9 @@ header.hero {
     color: white;
 }
 
-header.hero h1 {
-    font-size: 2.5em;
-    margin: 10px 0;
-}
-
-header.hero h2 {
-    font-size: 1.5em;
-    margin: 5px 0;
-}
-
-header.hero p {
-    font-size: 1.1em;
-    margin: 15px 0;
-}
+header.hero h1 { font-size: 2.5em; margin: 10px 0; }
+header.hero h2 { font-size: 1.5em; margin: 5px 0; }
+header.hero p { font-size: 1.1em; margin: 15px 0; }
 
 header.hero .botones .btn {
     margin: 5px;
@@ -44,11 +32,8 @@ header.hero .botones .btn {
     transition: background-color 0.3s, color 0.3s;
 }
 
-header.hero .botones .btn:hover {
-    background-color: #e0a800;
-}
+header.hero .botones .btn:hover { background-color: #e0a800; }
 
-/* Secciones generales */
 section {
     padding: 40px 20px;
     max-width: 900px;
@@ -66,7 +51,6 @@ h2 {
     padding-bottom: 5px;
 }
 
-/* Tarjetas de experiencia */
 .tarjeta {
     padding: 15px;
     margin: 15px 0;
@@ -74,28 +58,15 @@ h2 {
     border-radius: 5px;
 }
 
-/* Listas y enlaces */
-ul {
-    padding-left: 20px;
-}
+ul { padding-left: 20px; }
+a { color: #002147; text-decoration: none; transition: color 0.3s; }
+a:hover { color: #f0b429; }
 
-a {
-    color: #002147;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: #f0b429;
-}
-
-/* Iframe (CV) */
 iframe {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Botón de modo oscuro */
 .toggle-darkmode {
     position: fixed;
     top: 1rem;
@@ -112,66 +83,24 @@ iframe {
 /* ===========================
    Estilos Modo Oscuro
    =========================== */
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-/* Tarjetas */
-.dark-mode .tarjeta {
-    background: #1e1e1e;
-    border: 1px solid #333;
-}
-
-/* Secciones */
-.dark-mode section {
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-}
-
-/* Títulos h2 */
-.dark-mode h2 {
-    color: #9bb8ff;
-    border-bottom-color: #f0b429;
-}
-
-/* Botones header */
-.dark-mode header.hero .botones .btn {
-    background-color: #f0b429;
-    color: #002147;
-}
-
-.dark-mode header.hero .botones .btn:hover {
-    background-color: #e0a800;
-}
-
-/* Enlaces */
-.dark-mode a {
-    color: #9bb8ff;
-}
-
-/* Iframe CV */
-.dark-mode iframe {
-    border-color: #444;
-    background-color: #1a1a1a;
-}
+body.dark-mode { background-color: #121212; color: #e0e0e0; }
+.dark-mode .tarjeta { background: #1e1e1e; border: 1px solid #333; }
+.dark-mode section { background-color: #1a1a1a; border: 1px solid #333; }
+.dark-mode h2 { color: #9bb8ff; border-bottom-color: #f0b429; }
+.dark-mode header.hero .botones .btn { background-color: #f0b429; color: #002147; }
+.dark-mode header.hero .botones .btn:hover { background-color: #e0a800; }
+.dark-mode a { color: #9bb8ff; }
+.dark-mode iframe { border-color: #444; background-color: #1a1a1a; }
+body.dark-mode #privacidad { color: #aaaaaa; background-color: #121212; border-top-color: #333; }
 
 /* ===========================
    Responsividad Móvil
    =========================== */
 @media (max-width: 600px) {
-    header.hero h1 {
-        font-size: 2em;
-    }
-    header.hero h2 {
-        font-size: 1.2em;
-    }
-    section {
-        padding: 20px 15px;
-    }
-    .toggle-darkmode {
-        padding: 6px 10px;
-    }
+    header.hero h1 { font-size: 2em; }
+    header.hero h2 { font-size: 1.2em; }
+    section { padding: 20px 15px; }
+    .toggle-darkmode { padding: 6px 10px; }
 }
 
 /* Footer - aviso de privacidad */
@@ -179,16 +108,7 @@ body.dark-mode {
     text-align: center;
     padding: 20px;
     font-size: 0.9em;
-    color: #666666; /* color modo claro */
+    color: #666666;
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
     transition: background-color 0.4s, color 0.4s;
-}
-
-/* Footer en modo oscuro */
-body.dark-mode #privacidad {
-    color: #aaaaaa; /* texto más claro para modo oscuro */
-    background-color: #121212;
-    border-top-color: #333;
-}
-
