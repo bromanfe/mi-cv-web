@@ -30,4 +30,3 @@ function toggleDarkMode() {
 window.onload = () => {
     document.body.style.transition = "background-color 0.4s, color 0.4s";
 };
-
