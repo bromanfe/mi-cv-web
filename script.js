@@ -1,3 +1,7 @@
+// ============================
+// Modo oscuro
+// ============================
+
 // Detecta preferencia del sistema
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -32,12 +36,31 @@ window.onload = () => {
 };
 
 // ============================
-// Mensaje emergente tras envío (Getform)
+// Formulario: mensaje emergente + validación + reCAPTCHA
 // ============================
-const form = document.querySelector('form');
+const form = document.getElementById('contact-form');
 
 form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault();
+
+    // Validación campos obligatorios
+    const nombre = document.getElementById('nombre').value.trim();
+    const apellido = document.getElementById('apellido').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const asunto = document.getElementById('asunto').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    if (!nombre || !apellido || !email || !asunto || !mensaje) {
+        alert("Por favor completa todos los campos obligatorios.");
+        return;
+    }
+
+    // Validación reCAPTCHA
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+        alert("Por favor completa el reCAPTCHA antes de enviar.");
+        return;
+    }
 
     const formData = new FormData(form);
 
@@ -48,8 +71,9 @@ form.addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
-            alert("¡Gracias! Tu mensaje ha sido enviado."); // Mensaje emergente
-            form.reset(); // Limpia el formulario
+            alert("¡Gracias! Tu mensaje ha sido enviado correctamente.");
+            form.reset();
+            grecaptcha.reset(); // Reinicia reCAPTCHA
         } else {
             alert("Error al enviar el formulario. Por favor, intenta nuevamente.");
         }
@@ -58,4 +82,3 @@ form.addEventListener('submit', async (e) => {
         console.error(error);
     }
 });
-
