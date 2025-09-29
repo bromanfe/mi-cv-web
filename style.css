@@ -41,8 +41,16 @@ header.hero p {
     color: #dddddd;
 }
 
+/* Contenedor de botones: flex-wrap y separación */
+header.hero .botones {
+    display: flex;
+    flex-wrap: wrap; /* permite que los botones se muevan a otra línea */
+    justify-content: center; /* centra los botones */
+    gap: 10px; /* separación uniforme entre botones */
+}
+
 header.hero .botones .btn {
-    margin: 5px;
+    margin: 0; /* eliminado margin, usamos gap */
     padding: 10px 20px;
     background: #f0b429;
     color: #002147;
@@ -289,6 +297,11 @@ body.dark-mode {
     }
     button.btn-enviar {
         width: 100%;
+    }
+    /* Botones portada móviles: más padding para tocar cómodamente */
+    header.hero .botones .btn {
+        padding: 12px 25px;
+        font-size: 1em;
     }
     #privacidad {
         padding: 30px 20px; /* más espacio en móviles */
