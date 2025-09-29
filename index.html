@@ -124,7 +124,7 @@
   </ul>
 
   <h3>Formulario de contacto</h3>
-  <form action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data">
+  <form id="contact-form" action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input type="text" id="nombre" name="nombre" required>
@@ -141,8 +141,8 @@
     </div>
 
     <div class="form-group">
-  <label for="asunto">Asunto</label>
-  <input type="text" id="asunto" name="asunto" required>
+      <label for="asunto">Asunto</label>
+      <input type="text" id="asunto" name="asunto" required>
     </div>
 
     <div class="form-group">
@@ -155,6 +155,9 @@
       <input type="file" id="archivo" name="archivo">
     </div>
 
+    <!-- reCAPTCHA v2 -->
+    <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI"></div>
+
     <button type="submit" class="btn-enviar">Enviar</button>
   </form>
 </section>
@@ -164,6 +167,8 @@
     <p>Esta web no almacena datos de visitantes. Solo contiene información profesional para contacto laboral.</p>
 </footer>
 
+<!-- Scripts -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="script.js"></script>
 </body>
 </html>
