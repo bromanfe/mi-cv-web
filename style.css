@@ -2,7 +2,7 @@
    Estilos Generales (Modo Claro)
    =========================== */
 html {
-    scroll-behavior: smooth; /* scroll suave para enlaces internos */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -41,16 +41,14 @@ header.hero p {
     color: #dddddd;
 }
 
-/* Contenedor de botones: flex-wrap y separación */
 header.hero .botones {
     display: flex;
-    flex-wrap: wrap; /* permite que los botones se muevan a otra línea */
-    justify-content: center; /* centra los botones */
-    gap: 10px; /* separación uniforme entre botones */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Separación entre botones */
 }
 
 header.hero .botones .btn {
-    margin: 0; /* eliminado margin, usamos gap */
     padding: 10px 20px;
     background: #f0b429;
     color: #002147;
@@ -72,6 +70,10 @@ section {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: background-color 0.4s, border-color 0.4s;
+}
+
+section p, section ul, section li {
+    text-align: justify; /* Justificación de texto */
 }
 
 h2 {
@@ -209,7 +211,6 @@ body.dark-mode {
 .dark-mode .tarjeta {
     background: #1e1e1e;
     border: 1px solid #333;
-    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .dark-mode .tarjeta:hover {
@@ -298,13 +299,12 @@ body.dark-mode {
     button.btn-enviar {
         width: 100%;
     }
-    /* Botones portada móviles: más padding para tocar cómodamente */
-    header.hero .botones .btn {
-        padding: 12px 25px;
-        font-size: 1em;
+    header.hero .botones {
+        flex-direction: column;
+        gap: 15px; /* mayor separación en móviles */
     }
     #privacidad {
-        padding: 30px 20px; /* más espacio en móviles */
+        padding: 30px 20px;
     }
 }
 
@@ -323,4 +323,12 @@ body.dark-mode #privacidad {
     color: #aaaaaa;
     background-color: #121212;
     border-top-color: #333;
+}
+
+/* ===========================
+   Evitar auto-links en fechas (Safari / iOS)
+   =========================== */
+section, section p, section h3 {
+    -webkit-user-modify: read-write-plaintext-only;
+    -webkit-touch-callout: none;
 }
