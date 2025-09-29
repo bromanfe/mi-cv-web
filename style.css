@@ -1,6 +1,10 @@
 /* ===========================
    Estilos Generales (Modo Claro)
    =========================== */
+html {
+    scroll-behavior: smooth; /* Opcional: scroll suave para enlaces internos */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -270,6 +274,9 @@ body.dark-mode {
     }
     button.btn-enviar {
         width: 100%;
+    }
+    #privacidad {
+        padding: 30px 20px; /* más espacio en móviles */
     }
 }
 
