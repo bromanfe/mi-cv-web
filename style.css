@@ -22,13 +22,13 @@ header.hero {
 header.hero h1 {
     font-size: 2.5em;
     margin: 10px 0;
-    color: #ffffff; /* Modo claro */
+    color: #ffffff;
 }
 
 header.hero h2 {
     font-size: 1.5em;
     margin: 5px 0;
-    color: #f0f0f0; /* Texto más visible */
+    color: #f0f0f0;
 }
 
 header.hero p {
@@ -96,6 +96,9 @@ a:hover {
 iframe {
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%;
+    max-width: 900px;
+    height: 600px;
 }
 
 /* Botón de modo oscuro */
@@ -149,14 +152,12 @@ input:focus, textarea:focus {
     box-shadow: 0 0 4px rgba(0,33,71,0.3);
 }
 
-/* Input de archivo */
 input[type="file"] {
     padding: 5px;
     background: #f9f9f9;
     cursor: pointer;
 }
 
-/* Botón enviar */
 button.btn-enviar {
     background-color: #f0b429;
     color: #002147;
@@ -174,33 +175,6 @@ button.btn-enviar:hover {
 }
 
 /* ===========================
-   Formulario - modo oscuro
-   =========================== */
-.dark-mode label {
-    color: #dddddd;
-}
-.dark-mode input,
-.dark-mode textarea,
-.dark-mode select {
-    background: #1a1a1a;
-    border: 1px solid #444;
-    color: #e0e0e0;
-}
-.dark-mode input:focus,
-.dark-mode textarea:focus {
-    border-color: #9bb8ff;
-    box-shadow: 0 0 4px rgba(155,184,255,0.4);
-}
-.dark-mode input[type="file"] {
-    background: #2a2a2a;
-    color: #e0e0e0;
-}
-.dark-mode button.btn-enviar {
-    background-color: #f0b429;
-    color: #002147;
-}
-
-/* ===========================
    Estilos Modo Oscuro
    =========================== */
 body.dark-mode {
@@ -208,32 +182,27 @@ body.dark-mode {
     color: #e0e0e0;
 }
 
-/* Tarjetas */
 .dark-mode .tarjeta {
     background: #1e1e1e;
     border: 1px solid #333;
 }
 
-/* Secciones */
 .dark-mode section {
     background-color: #1a1a1a;
     border: 1px solid #333;
 }
 
-/* Títulos h2 */
 .dark-mode h2 {
     color: #9bb8ff;
     border-bottom-color: #f0b429;
 }
 
-/* Header - modo oscuro */
 .dark-mode header.hero h1,
 .dark-mode header.hero h2,
 .dark-mode header.hero p {
     color: #ffffff;
 }
 
-/* Botones header */
 .dark-mode header.hero .botones .btn {
     background-color: #f0b429;
     color: #002147;
@@ -243,23 +212,21 @@ body.dark-mode {
     background-color: #e0a800;
 }
 
-/* Enlaces */
 .dark-mode a {
     color: #9bb8ff;
 }
 
-/* Iframe CV */
 .dark-mode iframe {
     border-color: #444;
     background-color: #1a1a1a;
 }
 
-/* Formulario - modo oscuro */
 .dark-mode label {
     color: #dddddd;
 }
 .dark-mode input, 
-.dark-mode textarea {
+.dark-mode textarea,
+.dark-mode select {
     background: #1a1a1a;
     border: 1px solid #444;
     color: #e0e0e0;
@@ -267,6 +234,11 @@ body.dark-mode {
 .dark-mode input:focus, 
 .dark-mode textarea:focus {
     border-color: #9bb8ff;
+    box-shadow: 0 0 4px rgba(155,184,255,0.4);
+}
+.dark-mode input[type="file"] {
+    background: #2a2a2a;
+    color: #e0e0e0;
 }
 .dark-mode button.btn-enviar {
     background-color: #f0b429;
@@ -286,25 +258,27 @@ body.dark-mode {
     section {
         padding: 20px 15px;
     }
+    .tarjeta {
+        padding: 10px;
+    }
+    iframe {
+        height: 400px;
+    }
     .toggle-darkmode {
         padding: 6px 10px;
     }
-}
-
-/* Footer - aviso de privacidad */
-#privacidad {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-    color: #666666; /* color modo claro */
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    transition: background-color 0.4s, color 0.4s;
-}
-
-/* Footer en modo oscuro */
-body.dark-mode #privacidad {
-    color: #aaaaaa; /* texto más claro para modo oscuro */
-    background-color: #121212;
-    border-top-color: #333;
+    /* Formulario */
+    form {
+        width: 100%;
+        padding: 0 10px;
+    }
+    input, textarea, select {
+        width: 100%;
+        font-size: 1em;
+    }
+    button.btn-enviar {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 1.1em;
+    }
 }
