@@ -2,7 +2,7 @@
    Estilos Generales (Modo Claro)
    =========================== */
 html {
-    scroll-behavior: smooth; /* Opcional: scroll suave para enlaces internos */
+    scroll-behavior: smooth; /* scroll suave para enlaces internos */
 }
 
 body {
@@ -161,12 +161,14 @@ input:focus, textarea:focus {
     box-shadow: 0 0 4px rgba(0,33,71,0.3);
 }
 
+/* Input de archivo */
 input[type="file"] {
     padding: 5px;
     background: #f9f9f9;
     cursor: pointer;
 }
 
+/* Botón enviar */
 button.btn-enviar {
     background-color: #f0b429;
     color: #002147;
@@ -181,6 +183,11 @@ button.btn-enviar {
 button.btn-enviar:hover {
     background-color: #e0a800;
     transform: translateY(-2px);
+}
+
+/* reCAPTCHA */
+.g-recaptcha {
+    margin-bottom: 15px;
 }
 
 /* ===========================
