@@ -133,31 +133,71 @@ label {
     color: #002147;
 }
 
-input, textarea {
+input, textarea, select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
+    background: #fff;
+    color: #222;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: #002147;
+    box-shadow: 0 0 4px rgba(0,33,71,0.3);
 }
 
+/* Input de archivo */
+input[type="file"] {
+    padding: 5px;
+    background: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Botón enviar */
 button.btn-enviar {
     background-color: #f0b429;
     color: #002147;
-    padding: 10px 15px;
+    padding: 12px 18px;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button.btn-enviar:hover {
     background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   Formulario - modo oscuro
+   =========================== */
+.dark-mode label {
+    color: #dddddd;
+}
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background: #1a1a1a;
+    border: 1px solid #444;
+    color: #e0e0e0;
+}
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+    border-color: #9bb8ff;
+    box-shadow: 0 0 4px rgba(155,184,255,0.4);
+}
+.dark-mode input[type="file"] {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+.dark-mode button.btn-enviar {
+    background-color: #f0b429;
+    color: #002147;
 }
 
 /* ===========================
