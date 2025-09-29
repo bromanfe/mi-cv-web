@@ -30,3 +30,32 @@ function toggleDarkMode() {
 window.onload = () => {
     document.body.style.transition = "background-color 0.4s, color 0.4s";
 };
+
+// ============================
+// Mensaje emergente tras envío (Getform)
+// ============================
+const form = document.querySelector('form');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Evita que la página se recargue
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            alert("¡Gracias! Tu mensaje ha sido enviado."); // Mensaje emergente
+            form.reset(); // Limpia el formulario
+        } else {
+            alert("Error al enviar el formulario. Por favor, intenta nuevamente.");
+        }
+    } catch (error) {
+        alert("Error de conexión. Por favor, intenta nuevamente.");
+        console.error(error);
+    }
+});
+
