@@ -14,6 +14,11 @@ if (localStorage.getItem("theme") === "dark") {
 function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
     const icon = document.getElementById("darkmode-icon");
+
+    // Animación rápida de rotación
+    icon.style.transform = "rotate(0deg)";
+    setTimeout(() => icon.style.transform = "rotate(360deg)", 50);
+
     if (document.body.classList.contains("dark-mode")) {
         localStorage.setItem("theme", "dark");
         icon.textContent = "☀️";
@@ -83,18 +88,18 @@ form.addEventListener('submit', async (e) => {
     try {
         const response = await fetch(form.action, {
             method: 'POST',
-            body: formData,
+            body: formData
         });
 
         if (response.ok) {
-            alert("¡Gracias! Tu mensaje ha sido enviado.");
+            alert("Formulario enviado correctamente. ¡Gracias!");
             form.reset();
-            grecaptcha.reset(); // Reinicia reCAPTCHA
+            grecaptcha.reset();
         } else {
-            alert("Error al enviar el formulario. Por favor, intenta nuevamente.");
+            alert("Hubo un error al enviar el formulario. Intenta nuevamente.");
         }
     } catch (error) {
-        alert("Error de conexión. Por favor, intenta nuevamente.");
+        alert("Error de conexión. Intenta nuevamente.");
         console.error(error);
     }
 });
