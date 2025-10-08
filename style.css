@@ -404,3 +404,14 @@ body.dark-mode #privacidad {
     background-color: #121212;
     border-top-color: #333;
 }
+
+/* Animación rotación ícono modo oscuro */
+.rotate-icon {
+  display: inline-block;
+  animation: rotate360 0.4s ease;
+}
+
+@keyframes rotate360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
