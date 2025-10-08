@@ -33,9 +33,9 @@ header.hero {
 }
 
 .hero-foto {
-    flex: 1 1 50%;
-    max-width: 500px;
-    min-width: 250px;
+    flex: 1 1 40%;
+    max-width: 300px;
+    min-width: 200px;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
@@ -96,7 +96,7 @@ header.hero .botones .btn:focus-visible {
 /* ===========================
    Responsividad Header
    =========================== */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     header.hero {
         flex-direction: column;
         text-align: center;
@@ -324,6 +324,12 @@ body.dark-mode {
 
 .dark-mode a {
     color: #f0b429;
+}
+
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode label {
+    color: #f0f0f0;
 }
 
 .dark-mode input, 
