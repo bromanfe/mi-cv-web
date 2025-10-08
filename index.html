@@ -29,45 +29,14 @@
       margin-bottom: 4px; 
     }
 
-    /* Layout de dos columnas para portada */
-    .hero {
-      display: flex;
-      align-items: center;
-      gap: 30px; /* espacio entre imagen y contenido */
-      text-align: left;
-      flex-wrap: wrap; /* permite que en pantallas pequeñas se acomode vertical */
-      padding: 20px 0;
-    }
-
+    /* Imagen de portada */
     .hero img {
       width: 150px;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
+      margin-bottom: 15px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      flex-shrink: 0; /* evita que la imagen se achique */
-    }
-
-    .hero-content {
-      flex-grow: 1; /* ocupa todo el espacio restante */
-    }
-
-    .hero-content .botones {
-      text-align: left; /* alinea botones a la izquierda */
-      margin-top: 10px;
-    }
-
-    /* Responsive: en móviles apila verticalmente */
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .hero-content .botones {
-        text-align: center;
-      }
     }
 
     /* Botón modo oscuro */
@@ -95,16 +64,13 @@
   <!-- Portada -->
   <header class="hero">
     <img src="foto_benjamin.jpg.jpg" alt="Foto profesional de Benjamín Tomás Román Fernández">
-
-    <div class="hero-content">
-      <h1>Benjamín Tomás Román Fernández</h1>
-      <h2>Ingeniero Comercial – Universidad de Chile</h2>
-      <p>Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding</p>
-      <div class="botones">
-        <a href="CV%20Benjamin%20Roman%202025.pdf" target="_blank" class="btn" aria-label="Descargar CV de Benjamín Román">Descargar CV</a>
-        <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" class="btn" aria-label="Perfil LinkedIn de Benjamín Román">LinkedIn</a>
-        <a href="#contacto" class="btn" aria-label="Ir a sección de contacto de Benjamín Román">Contacto</a>
-      </div>
+    <h1>Benjamín Tomás Román Fernández</h1>
+    <h2>Ingeniero Comercial – Universidad de Chile</h2>
+    <p>Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding</p>
+    <div class="botones">
+      <a href="CV%20Benjamin%20Roman%202025.pdf" target="_blank" class="btn" aria-label="Descargar CV de Benjamín Román">Descargar CV</a>
+      <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" class="btn" aria-label="Perfil LinkedIn de Benjamín Román">LinkedIn</a>
+      <a href="#contacto" class="btn" aria-label="Ir a sección de contacto de Benjamín Román">Contacto</a>
     </div>
   </header>
 
@@ -201,35 +167,55 @@
     <ul>
       <li>Email: <a href="mailto:broman@fen.uchile.cl">broman@fen.uchile.cl</a></li>
       <li>Teléfono: +56 9 97701521</li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/">benjamin-roman-fernandez</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank">benjamin-roman-fernandez</a></li>
     </ul>
 
-    <form action="mailto:broman@fen.uchile.cl" method="post" enctype="text/plain">
-      <label for="nombre">Nombre:</label><br>
-      <input type="text" id="nombre" name="nombre" required><br><br>
+    <h3>Formulario de contacto</h3>
+    <form id="contact-form" action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="nombre">Nombre*</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
 
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" required><br><br>
+      <div class="form-group">
+        <label for="apellido">Apellido*</label>
+        <input type="text" id="apellido" name="apellido" required>
+      </div>
 
-      <label for="mensaje">Mensaje:</label><br>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea><br><br>
+      <div class="form-group">
+        <label for="email">Correo electrónico*</label>
+        <input type="email" id="email" name="email" required>
+      </div>
 
-      <input type="submit" value="Enviar">
+      <div class="form-group">
+        <label for="asunto">Asunto*</label>
+        <input type="text" id="asunto" name="asunto" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Mensaje*</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="archivo">Adjuntar archivo (opcional)</label>
+        <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
+      </div>
+
+      <!-- reCAPTCHA v2 -->
+      <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI"></div>
+
+      <button type="submit" class="btn-enviar">Enviar</button>
     </form>
   </section>
 
-  <!-- Scripts -->
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('darkmode');
-      const icon = document.getElementById('darkmode-icon');
-      if (document.body.classList.contains('darkmode')) {
-        icon.textContent = '🌞';
-      } else {
-        icon.textContent = '🌙';
-      }
-    }
-  </script>
+  <!-- Footer -->
+  <footer id="privacidad">
+    <p>Esta web no almacena datos de visitantes. Solo contiene información profesional para contacto laboral.</p>
+  </footer>
 
+  <!-- Scripts -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
