@@ -15,17 +15,22 @@ body {
     transition: background-color 0.4s, color 0.4s;
 }
 
-/* Encabezado / Portada con imagen a la izquierda */
+/* ===========================
+   Encabezado / Portada con imagen a la izquierda
+   =========================== */
 header.hero {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* contenido alineado a la izquierda */
+    max-width: 900px;            /* igual que las secciones */
+    margin: 0 auto;              /* centra el header en la página */
     gap: 40px;
     padding: 60px 20px;
     background: #002147;
     color: white;
     flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
 /* Contenedor de la foto */
@@ -90,19 +95,51 @@ header.hero .botones .btn:focus-visible {
     outline: none;
 }
 
-/* Responsividad: vertical en móvil */
+/* ===========================
+   Responsividad Móvil Header
+   =========================== */
 @media (max-width: 600px) {
     header.hero {
-        flex-direction: column;
+        flex-direction: column; /* apilar verticalmente */
         text-align: center;
+        max-width: 100%;       /* ocupa todo el ancho */
+        padding: 40px 15px;
+    }
+
+    .hero-foto {
+        max-width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .hero-info {
+        flex: unset;
+        width: 100%;
     }
 
     .hero-info .botones {
         justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header.hero h1 {
+        font-size: 2em;
+    }
+
+    header.hero h2 {
+        font-size: 1.2em;
     }
 }
 
-/* Secciones generales */
+@media (max-width: 400px) {
+    header.hero .botones {
+        gap: 10px;
+    }
+}
+
+/* ===========================
+   Secciones generales
+   =========================== */
 section {
     padding: 50px 20px;
     max-width: 900px;
@@ -301,153 +338,20 @@ body.dark-mode {
 
 .dark-mode section {
     background-color: #1a1a1a;
-    border: 1px solid #333;
-}
-
-.dark-mode h2 {
-    color: #9bb8ff;
-    border-bottom-color: #f0b429;
-}
-
-.dark-mode header.hero h1,
-.dark-mode header.hero h2,
-.dark-mode header.hero p {
-    color: #ffffff;
-}
-
-.dark-mode header.hero .botones .btn {
-    background-color: #f0b429;
-    color: #002147;
-}
-
-.dark-mode header.hero .botones .btn:hover,
-.dark-mode header.hero .botones .btn:focus-visible {
-    background-color: #e0a800;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border-color: #333;
 }
 
 .dark-mode a {
-    color: #9bb8ff;
+    color: #f0b429;
 }
 
-.dark-mode a:hover,
-.dark-mode a:focus-visible {
-    color: #ffd166;
-    outline: none;
+.dark-mode input, .dark-mode textarea, .dark-mode select {
+    background: #222;
+    color: #eee;
+    border-color: #555;
 }
 
-.dark-mode iframe {
-    border-color: #444;
-    background-color: #1a1a1a;
-}
-
-.dark-mode label {
-    color: #dddddd;
-}
-
-.dark-mode input, 
-.dark-mode textarea, 
-.dark-mode select {
-    background: #1a1a1a;
-    border: 1px solid #444;
-    color: #e0e0e0;
-}
-
-.dark-mode input:focus, 
-.dark-mode textarea:focus,
-.dark-mode select:focus {
-    border-color: #9bb8ff;
-    box-shadow: 0 0 6px rgba(155,184,255,0.4);
-}
-
-.dark-mode input[type="file"] {
-    background: #2a2a2a;
-    color: #e0e0e0;
-}
-
-.dark-mode input[type="file"]:hover,
-.dark-mode input[type="file"]:focus {
-    background-color: #333;
-    border-color: #9bb8ff;
-    outline: none;
-}
-
-.dark-mode button.btn-enviar {
-    background-color: #f0b429;
-}
-
-/* Toggle icon animation */
-#darkmode-icon {
-    display: inline-block;
-    transition: transform 0.3s;
-}
-
-body.dark-mode #darkmode-icon {
-    transform: rotate(180deg);
-}
-
-/* ===========================
-   Responsividad Móvil
-   =========================== */
-@media (max-width: 600px) {
-    header.hero h1 {
-        font-size: 2em;
-    }
-    header.hero h2 {
-        font-size: 1.2em;
-    }
-    section {
-        padding: 25px 15px;
-    }
-    .toggle-darkmode {
-        padding: 6px 10px;
-    }
-    button.btn-enviar {
-        width: 100%;
-    }
-    header.hero .botones {
-        flex-direction: column;
-        gap: 15px;
-    }
-    #privacidad {
-        padding: 30px 20px;
-    }
-}
-
-@media (max-width: 400px) {
-    header.hero .botones {
-        gap: 10px;
-    }
-}
-
-/* Footer / Aviso de privacidad */
-#privacidad {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-    color: #666666;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    transition: background-color 0.4s, color 0.4s;
-}
-
-#privacidad p {
-    text-align: justify;
-}
-
-body.dark-mode #privacidad {
-    color: #aaaaaa;
-    background-color: #121212;
-    border-top-color: #333;
-}
-
-/* Animación rotación ícono modo oscuro */
-.rotate-icon {
-  display: inline-block;
-  animation: rotate360 0.4s ease;
-}
-
-@keyframes rotate360 {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.dark-mode input:focus, .dark-mode textarea:focus, .dark-mode select:focus {
+    border-color: #f0b429;
+    box-shadow: 0 0 6px rgba(240, 180, 41, 0.4);
 }
