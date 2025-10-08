@@ -35,8 +35,9 @@ header.hero {
 
 /* Contenedor de la foto */
 .hero-foto {
-    flex: 1 1 250px;
-    max-width: 300px;
+    flex: 1 1 40%; /* Ocupa 40% del ancho disponible */
+    max-width: 400px; /* Máximo razonable */
+    min-width: 250px; /* Para no achicar demasiado */
     border-radius: 10px;
     overflow: hidden;
 }
@@ -53,19 +54,19 @@ header.hero {
 }
 
 header.hero h1 {
-    font-size: 2.7em;
+    font-size: clamp(2.2rem, 5vw, 3.5rem); /* antes: 2.7em */
     margin: 10px 0;
     color: #ffffff;
 }
 
 header.hero h2 {
-    font-size: 1.5em;
+    font-size: clamp(1.2rem, 3vw, 2rem); /* antes: 1.5em */
     margin: 5px 0 15px 0;
     color: #f0f0f0;
 }
 
 header.hero p {
-    font-size: 1.1em;
+    font-size: clamp(1rem, 1.8vw, 1.3rem); /* antes: 1.1em */
     margin: 15px 0;
     color: #dddddd;
 }
@@ -121,14 +122,6 @@ header.hero .botones .btn:focus-visible {
         flex-direction: column;
         gap: 15px;
     }
-
-    header.hero h1 {
-        font-size: 2em;
-    }
-
-    header.hero h2 {
-        font-size: 1.2em;
-    }
 }
 
 @media (max-width: 400px) {
@@ -174,7 +167,7 @@ li {
 
 /* Encabezados */
 h2 {
-    color: #002147;
+    color: #ffffff;
     border-bottom: 2px solid #f0b429;
     display: inline-block;
     padding-bottom: 5px;
