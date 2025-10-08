@@ -12,14 +12,14 @@ if (!localStorage.getItem("theme") && prefersDark) {
   document.body.classList.add("dark-mode");
 }
 
+// Toggle modo oscuro
 function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
   const icon = document.getElementById("darkmode-icon");
+  document.body.classList.toggle("dark-mode");
 
   // Animación sutil de rotación del ícono
-  icon.style.transition = "transform 0.4s ease";
-  icon.style.transform = "rotate(360deg)";
-  setTimeout(() => (icon.style.transform = "rotate(0deg)"), 400);
+  icon.classList.add("rotate-icon");
+  setTimeout(() => icon.classList.remove("rotate-icon"), 400);
 
   if (document.body.classList.contains("dark-mode")) {
     localStorage.setItem("theme", "dark");
@@ -32,7 +32,8 @@ function toggleDarkMode() {
 
 // Transición suave al cargar
 window.addEventListener("load", () => {
-  document.body.style.transition = "background-color 0.4s, color 0.4s";
+  document.body.style.transition =
+    "background-color 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s";
 });
 
 // ============================
@@ -87,6 +88,11 @@ if (form) {
       return;
     }
 
+    // Deshabilitar botón mientras se envía
+    const btnEnviar = form.querySelector("button.btn-enviar");
+    btnEnviar.disabled = true;
+    btnEnviar.textContent = "Enviando...";
+
     // Enviar datos mediante Fetch
     const formData = new FormData(form);
 
@@ -106,6 +112,9 @@ if (form) {
     } catch (error) {
       console.error("Error de conexión:", error);
       alert("❌ No se pudo enviar. Verifica tu conexión e intenta otra vez.");
+    } finally {
+      btnEnviar.disabled = false;
+      btnEnviar.textContent = "Enviar";
     }
   });
 }
