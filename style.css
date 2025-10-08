@@ -53,7 +53,7 @@ header.hero .botones .btn {
     background: #f0b429;
     color: #002147;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -72,17 +72,26 @@ section {
     transition: background-color 0.4s, border-color 0.4s;
 }
 
-section p, section ul, section li {
+section p,
+section ul {
     text-align: justify;
     margin-bottom: 10px;
 }
 
+/* --- Compactación de listas y alineación --- */
 ul {
-    padding-left: 25px;
+    padding-left: 0;
+    list-style-position: inside;
 }
 
 li {
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+/* Espacio leve entre párrafos dentro de tarjetas */
+.tarjeta p:not(:last-child) {
+    margin-bottom: 6px;
 }
 
 h2 {
@@ -126,7 +135,7 @@ a:hover {
 /* Iframe (CV) */
 iframe {
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 /* Botón modo oscuro */
@@ -136,7 +145,7 @@ iframe {
     right: 1rem;
     padding: 8px 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background: #444;
     color: #fff;
     cursor: pointer;
@@ -167,7 +176,7 @@ label {
 input, textarea, select {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1em;
     background: #fff;
     color: #222;
@@ -191,7 +200,7 @@ button.btn-enviar {
     color: #002147;
     padding: 12px 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
@@ -334,6 +343,13 @@ body.dark-mode #darkmode-icon {
     }
 }
 
+/* Microajuste adicional para móviles muy pequeños */
+@media (max-width: 400px) {
+    header.hero .botones {
+        gap: 10px;
+    }
+}
+
 /* Footer / Aviso de privacidad */
 #privacidad {
     text-align: center;
@@ -353,10 +369,4 @@ body.dark-mode #privacidad {
     color: #aaaaaa;
     background-color: #121212;
     border-top-color: #333;
-}
-
-/* Evitar auto-links en fechas (Safari / iOS) */
-section, section p, section h3 {
-    -webkit-user-modify: read-write-plaintext-only;
-    -webkit-touch-callout: none;
 }
