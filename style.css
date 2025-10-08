@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -18,13 +18,13 @@ body {
 /* Encabezado / Portada */
 header.hero {
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
     background: #002147;
     color: white;
 }
 
 header.hero h1 {
-    font-size: 2.5em;
+    font-size: 2.7em;
     margin: 10px 0;
     color: #ffffff;
 }
@@ -49,78 +49,81 @@ header.hero .botones {
 }
 
 header.hero .botones .btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: #f0b429;
     color: #002147;
     text-decoration: none;
     border-radius: 8px;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 header.hero .botones .btn:hover {
     background-color: #e0a800;
+    transform: translateY(-2px);
 }
 
 /* Secciones generales */
 section {
-    padding: 40px 20px;
+    padding: 50px 20px;
     max-width: 900px;
     margin: 20px auto;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: background-color 0.4s, border-color 0.4s;
 }
 
 section p,
 section ul {
     text-align: justify;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-/* --- Compactación de listas y alineación --- */
+/* Listas compactas */
 ul {
-    padding-left: 0;
+    padding-left: 1.2em;
     list-style-position: inside;
 }
 
 li {
-    margin-bottom: 0;
+    margin-bottom: 6px;
     text-align: justify;
 }
 
 /* Espacio leve entre párrafos dentro de tarjetas */
 .tarjeta p:not(:last-child) {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
+/* Encabezados */
 h2 {
     color: #002147;
     border-bottom: 2px solid #f0b429;
     display: inline-block;
     padding-bottom: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 h3 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 /* Tarjetas */
 .tarjeta {
-    padding: 20px;
-    margin: 15px 0;
-    background: #e6e6e6;
-    border-radius: 8px;
+    padding: 25px 20px;
+    margin: 20px 0;
+    background: #f1f1f1;
+    border-radius: 10px;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .tarjeta:hover {
-    background-color: #f5f5f5;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* Listas y enlaces */
+/* Enlaces */
 a {
     color: #002147;
     text-decoration: none;
@@ -136,6 +139,7 @@ a:hover {
 iframe {
     border: 1px solid #ccc;
     border-radius: 8px;
+    width: 100%;
 }
 
 /* Botón modo oscuro */
@@ -150,6 +154,11 @@ iframe {
     color: #fff;
     cursor: pointer;
     z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+.toggle-darkmode:hover {
+    background-color: #555;
 }
 
 /* ===========================
@@ -158,7 +167,7 @@ iframe {
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
     margin-top: 20px;
 }
 
@@ -174,7 +183,7 @@ label {
 }
 
 input, textarea, select {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1em;
@@ -186,11 +195,11 @@ input, textarea, select {
 input:focus, textarea:focus {
     outline: none;
     border-color: #002147;
-    box-shadow: 0 0 4px rgba(0,33,71,0.3);
+    box-shadow: 0 0 6px rgba(0,33,71,0.3);
 }
 
 input[type="file"] {
-    padding: 5px;
+    padding: 6px;
     background: #f9f9f9;
     cursor: pointer;
 }
@@ -198,7 +207,7 @@ input[type="file"] {
 button.btn-enviar {
     background-color: #f0b429;
     color: #002147;
-    padding: 12px 18px;
+    padding: 14px 20px;
     border: none;
     border-radius: 8px;
     font-weight: bold;
@@ -231,7 +240,7 @@ body.dark-mode {
 
 .dark-mode .tarjeta:hover {
     background-color: #2a2a2a;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
 
 .dark-mode section {
@@ -265,7 +274,6 @@ body.dark-mode {
 
 .dark-mode a:hover {
     color: #ffd166;
-    text-decoration: underline;
 }
 
 .dark-mode iframe {
@@ -288,7 +296,7 @@ body.dark-mode {
 .dark-mode input:focus, 
 .dark-mode textarea:focus {
     border-color: #9bb8ff;
-    box-shadow: 0 0 4px rgba(155,184,255,0.4);
+    box-shadow: 0 0 6px rgba(155,184,255,0.4);
 }
 
 .dark-mode input[type="file"] {
@@ -326,7 +334,7 @@ body.dark-mode #darkmode-icon {
         font-size: 1.2em;
     }
     section {
-        padding: 20px 15px;
+        padding: 25px 15px;
     }
     .toggle-darkmode {
         padding: 6px 10px;
@@ -343,7 +351,6 @@ body.dark-mode #darkmode-icon {
     }
 }
 
-/* Microajuste adicional para móviles muy pequeños */
 @media (max-width: 400px) {
     header.hero .botones {
         gap: 10px;
