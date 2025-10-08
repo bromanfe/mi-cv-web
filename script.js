@@ -1,105 +1,111 @@
 // ============================
-// Modo oscuro
+// 🌙 MODO OSCURO / CLARO
 // ============================
+
+// Detecta si el usuario prefiere modo oscuro
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
+// Aplica preferencia almacenada o del sistema
 if (!localStorage.getItem("theme") && prefersDark) {
-    document.body.classList.add("dark-mode");
-}
-
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
+  document.body.classList.add("dark-mode");
+} else if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
 }
 
 function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-    const icon = document.getElementById("darkmode-icon");
+  document.body.classList.toggle("dark-mode");
+  const icon = document.getElementById("darkmode-icon");
 
-    // Animación rápida de rotación
-    icon.style.transform = "rotate(0deg)";
-    setTimeout(() => icon.style.transform = "rotate(360deg)", 50);
+  // Animación sutil de rotación del ícono
+  icon.style.transition = "transform 0.4s ease";
+  icon.style.transform = "rotate(360deg)";
+  setTimeout(() => (icon.style.transform = "rotate(0deg)"), 400);
 
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-        icon.textContent = "☀️";
-    } else {
-        localStorage.setItem("theme", "light");
-        icon.textContent = "🌙";
-    }
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    icon.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    icon.textContent = "🌙";
+  }
 }
 
-window.onload = () => {
-    document.body.style.transition = "background-color 0.4s, color 0.4s";
-};
+// Transición suave al cargar
+window.addEventListener("load", () => {
+  document.body.style.transition = "background-color 0.4s, color 0.4s";
+});
 
 // ============================
-// Formulario: Validación y envío con Getform + reCAPTCHA
+// 📩 FORMULARIO CON VALIDACIÓN + reCAPTCHA + Getform
 // ============================
-const form = document.querySelector('form');
 
-form.addEventListener('submit', async (e) => {
+const form = document.querySelector("#contact-form");
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Campos
-    const nombre = document.getElementById('nombre').value.trim();
-    const apellido = document.getElementById('apellido').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const asunto = document.getElementById('asunto').value.trim();
-    const mensaje = document.getElementById('mensaje').value.trim();
-    const archivo = document.getElementById('archivo').files[0];
+    // Obtener valores
+    const nombre = form.nombre.value.trim();
+    const apellido = form.apellido.value.trim();
+    const email = form.email.value.trim();
+    const asunto = form.asunto.value.trim();
+    const mensaje = form.mensaje.value.trim();
+    const archivo = form.archivo.files[0];
 
-    // Validación campos obligatorios
+    // Validar campos obligatorios
     if (!nombre || !apellido || !email || !asunto || !mensaje) {
-        alert("Por favor, completa todos los campos obligatorios.");
-        return;
+      alert("Por favor, completa todos los campos obligatorios.");
+      return;
     }
 
-    // Validación email
+    // Validar formato de correo
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        alert("Por favor, ingresa un correo electrónico válido.");
-        return;
+      alert("Por favor, ingresa un correo electrónico válido.");
+      return;
     }
 
-    // Validación archivo (opcional)
+    // Validar archivo (opcional)
     if (archivo) {
-        const maxSizeMB = 5;
-        const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
-        if (archivo.size > maxSizeMB * 1024 * 1024) {
-            alert(`El archivo no debe superar ${maxSizeMB} MB.`);
-            return;
-        }
-        if (!allowedTypes.includes(archivo.type)) {
-            alert("Solo se permiten archivos PDF, JPG o PNG.");
-            return;
-        }
+      const maxSizeMB = 5;
+      const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
+      if (archivo.size > maxSizeMB * 1024 * 1024) {
+        alert(`El archivo no debe superar ${maxSizeMB} MB.`);
+        return;
+      }
+      if (!allowedTypes.includes(archivo.type)) {
+        alert("Solo se permiten archivos PDF, JPG o PNG.");
+        return;
+      }
     }
 
-    // Validación reCAPTCHA
+    // Validar reCAPTCHA
     const recaptchaToken = grecaptcha.getResponse();
     if (!recaptchaToken) {
-        alert("Por favor, completa el reCAPTCHA para enviar el formulario.");
-        return;
+      alert("Por favor, completa el reCAPTCHA antes de enviar.");
+      return;
     }
 
-    // Preparar FormData
+    // Enviar datos mediante Fetch
     const formData = new FormData(form);
 
     try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData
-        });
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+      });
 
-        if (response.ok) {
-            alert("Formulario enviado correctamente. ¡Gracias!");
-            form.reset();
-            grecaptcha.reset();
-        } else {
-            alert("Hubo un error al enviar el formulario. Intenta nuevamente.");
-        }
+      if (response.ok) {
+        alert("✅ Formulario enviado correctamente. ¡Gracias por contactarme!");
+        form.reset();
+        grecaptcha.reset();
+      } else {
+        alert("⚠️ Ocurrió un error al enviar el formulario. Intenta nuevamente.");
+      }
     } catch (error) {
-        alert("Error de conexión. Intenta nuevamente.");
-        console.error(error);
+      console.error("Error de conexión:", error);
+      alert("❌ No se pudo enviar. Verifica tu conexión e intenta otra vez.");
     }
-});
+  });
+}
