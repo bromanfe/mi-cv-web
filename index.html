@@ -28,6 +28,30 @@
       text-align: justify; 
       margin-bottom: 4px; 
     }
+
+    /* Imagen de portada */
+    .hero img {
+      width: 150px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Botón modo oscuro */
+    .toggle-darkmode {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 999;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
@@ -39,6 +63,7 @@
 
   <!-- Portada -->
   <header class="hero">
+    <img src="foto_benjamin.jpg.jpg" alt="Foto profesional de Benjamín Tomás Román Fernández">
     <h1>Benjamín Tomás Román Fernández</h1>
     <h2>Ingeniero Comercial – Universidad de Chile</h2>
     <p>Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding</p>
