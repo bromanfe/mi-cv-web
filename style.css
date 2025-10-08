@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -55,12 +55,15 @@ header.hero .botones .btn {
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
-header.hero .botones .btn:hover {
+header.hero .botones .btn:hover,
+header.hero .botones .btn:focus-visible {
     background-color: #e0a800;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    outline: none;
 }
 
 /* Secciones generales */
@@ -118,7 +121,8 @@ h3 {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.tarjeta:hover {
+.tarjeta:hover,
+.tarjeta:focus-within {
     background-color: #ffffff;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
@@ -130,9 +134,11 @@ a {
     transition: color 0.3s;
 }
 
-a:hover {
+a:hover,
+a:focus-visible {
     color: #f0b429;
     text-decoration: underline;
+    outline: none;
 }
 
 /* Iframe (CV) */
@@ -154,11 +160,13 @@ iframe {
     color: #fff;
     cursor: pointer;
     z-index: 1000;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.toggle-darkmode:hover {
+.toggle-darkmode:hover,
+.toggle-darkmode:focus-visible {
     background-color: #555;
+    outline: none;
 }
 
 /* ===========================
@@ -192,7 +200,7 @@ input, textarea, select {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
     outline: none;
     border-color: #002147;
     box-shadow: 0 0 6px rgba(0,33,71,0.3);
@@ -202,6 +210,14 @@ input[type="file"] {
     padding: 6px;
     background: #f9f9f9;
     cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="file"]:hover,
+input[type="file"]:focus {
+    background-color: #eaeaea;
+    border-color: #002147;
+    outline: none;
 }
 
 button.btn-enviar {
@@ -212,12 +228,15 @@ button.btn-enviar {
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
-button.btn-enviar:hover {
+button.btn-enviar:hover,
+button.btn-enviar:focus-visible {
     background-color: #e0a800;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    outline: none;
 }
 
 /* reCAPTCHA */
@@ -238,7 +257,8 @@ body.dark-mode {
     border: 1px solid #333;
 }
 
-.dark-mode .tarjeta:hover {
+.dark-mode .tarjeta:hover,
+.dark-mode .tarjeta:focus-within {
     background-color: #2a2a2a;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
@@ -264,16 +284,20 @@ body.dark-mode {
     color: #002147;
 }
 
-.dark-mode header.hero .botones .btn:hover {
+.dark-mode header.hero .botones .btn:hover,
+.dark-mode header.hero .botones .btn:focus-visible {
     background-color: #e0a800;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .dark-mode a {
     color: #9bb8ff;
 }
 
-.dark-mode a:hover {
+.dark-mode a:hover,
+.dark-mode a:focus-visible {
     color: #ffd166;
+    outline: none;
 }
 
 .dark-mode iframe {
@@ -294,7 +318,8 @@ body.dark-mode {
 }
 
 .dark-mode input:focus, 
-.dark-mode textarea:focus {
+.dark-mode textarea:focus,
+.dark-mode select:focus {
     border-color: #9bb8ff;
     box-shadow: 0 0 6px rgba(155,184,255,0.4);
 }
@@ -304,9 +329,11 @@ body.dark-mode {
     color: #e0e0e0;
 }
 
-.dark-mode input[type="file"]:hover {
+.dark-mode input[type="file"]:hover,
+.dark-mode input[type="file"]:focus {
     background-color: #333;
     border-color: #9bb8ff;
+    outline: none;
 }
 
 .dark-mode button.btn-enviar {
