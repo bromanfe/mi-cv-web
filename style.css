@@ -1,5 +1,5 @@
 /* ===========================
-   Estilos Generales (Modo Claro)
+   Estilos Generales
    =========================== */
 html {
     scroll-behavior: smooth;
@@ -16,28 +16,27 @@ body {
 }
 
 /* ===========================
-   Encabezado / Portada con imagen a la izquierda
+   Header / Portada
    =========================== */
 header.hero {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start; /* contenido alineado a la izquierda */
-    max-width: 900px;            /* igual que las secciones */
-    margin: 0 auto;              /* centra el header en la página */
+    justify-content: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
     gap: 40px;
     padding: 60px 20px;
-    background: #002147;
-    color: white;
-    flex-wrap: wrap;
+    background-color: #002147;
+    color: #fff;
     box-sizing: border-box;
 }
 
-/* Contenedor de la foto */
 .hero-foto {
-    flex: 1 1 40%; /* Ocupa 40% del ancho disponible */
-    max-width: 400px; /* Máximo razonable */
-    min-width: 250px; /* Para no achicar demasiado */
+    flex: 1 1 50%;
+    max-width: 500px;
+    min-width: 250px;
+    width: 100%;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -48,32 +47,30 @@ header.hero {
     display: block;
 }
 
-/* Contenedor de la información */
 .hero-info {
     flex: 2 1 400px;
 }
 
 header.hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.5rem); /* antes: 2.7em */
+    font-size: clamp(2rem, 4vw, 3rem);
     margin: 10px 0;
-    color: #ffffff;
+    color: #fff;
 }
 
 header.hero h2 {
-    font-size: clamp(1.2rem, 3vw, 2rem); /* antes: 1.5em */
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
     margin: 5px 0 15px 0;
     color: #f0f0f0;
 }
 
 header.hero p {
-    font-size: clamp(1rem, 1.8vw, 1.3rem); /* antes: 1.1em */
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
     margin: 15px 0;
     color: #dddddd;
 }
 
 header.hero .botones {
     display: flex;
-    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 12px;
 }
@@ -97,13 +94,13 @@ header.hero .botones .btn:focus-visible {
 }
 
 /* ===========================
-   Responsividad Móvil Header
+   Responsividad Header
    =========================== */
 @media (max-width: 600px) {
     header.hero {
-        flex-direction: column; /* apilar verticalmente */
+        flex-direction: column;
         text-align: center;
-        max-width: 100%;       /* ocupa todo el ancho */
+        max-width: 100%;
         padding: 40px 15px;
     }
 
@@ -131,13 +128,13 @@ header.hero .botones .btn:focus-visible {
 }
 
 /* ===========================
-   Secciones generales
+   Secciones Generales
    =========================== */
 section {
     padding: 50px 20px;
     max-width: 900px;
     margin: 20px auto;
-    background: white;
+    background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: background-color 0.4s, border-color 0.4s;
@@ -149,7 +146,6 @@ section ul {
     margin-bottom: 12px;
 }
 
-/* Listas compactas */
 ul {
     padding-left: 1.2em;
     list-style-position: inside;
@@ -157,17 +153,11 @@ ul {
 
 li {
     margin-bottom: 6px;
-    text-align: justify;
-}
-
-/* Espacio leve entre párrafos dentro de tarjetas */
-.tarjeta p:not(:last-child) {
-    margin-bottom: 8px;
 }
 
 /* Encabezados */
 h2 {
-    color: #ffffff;
+    color: #222;
     border-bottom: 2px solid #f0b429;
     display: inline-block;
     padding-bottom: 5px;
@@ -189,8 +179,8 @@ h3 {
 
 .tarjeta:hover,
 .tarjeta:focus-within {
-    background-color: #ffffff;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 /* Enlaces */
@@ -207,7 +197,7 @@ a:focus-visible {
     outline: none;
 }
 
-/* Iframe (CV) */
+/* Iframe */
 iframe {
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -236,7 +226,7 @@ iframe {
 }
 
 /* ===========================
-   Formulario de contacto
+   Formulario
    =========================== */
 form {
     display: flex;
@@ -276,7 +266,6 @@ input[type="file"] {
     padding: 6px;
     background: #f9f9f9;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
 }
 
 input[type="file"]:hover,
@@ -305,7 +294,6 @@ button.btn-enviar:focus-visible {
     outline: none;
 }
 
-/* reCAPTCHA */
 .g-recaptcha {
     margin-bottom: 15px;
 }
@@ -318,6 +306,11 @@ body.dark-mode {
     color: #e0e0e0;
 }
 
+.dark-mode section {
+    background-color: #1a1a1a;
+    border-color: #333;
+}
+
 .dark-mode .tarjeta {
     background: #1e1e1e;
     border: 1px solid #333;
@@ -326,25 +319,24 @@ body.dark-mode {
 .dark-mode .tarjeta:hover,
 .dark-mode .tarjeta:focus-within {
     background-color: #2a2a2a;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
-}
-
-.dark-mode section {
-    background-color: #1a1a1a;
-    border-color: #333;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 
 .dark-mode a {
     color: #f0b429;
 }
 
-.dark-mode input, .dark-mode textarea, .dark-mode select {
+.dark-mode input, 
+.dark-mode textarea, 
+.dark-mode select {
     background: #222;
     color: #eee;
     border-color: #555;
 }
 
-.dark-mode input:focus, .dark-mode textarea:focus, .dark-mode select:focus {
+.dark-mode input:focus, 
+.dark-mode textarea:focus, 
+.dark-mode select:focus {
     border-color: #f0b429;
-    box-shadow: 0 0 6px rgba(240, 180, 41, 0.4);
+    box-shadow: 0 0 6px rgba(240,180,41,0.4);
 }
