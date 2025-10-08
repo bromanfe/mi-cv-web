@@ -10,6 +10,14 @@
   <meta name="keywords" content="Benjamín Román, Ingeniería Comercial, Ecommerce, Análisis de Datos, AI, Transformación Digital, CV online">
   <meta name="author" content="Benjamín Tomás Román Fernández">
 
+  <!-- SEO social -->
+  <meta property="og:title" content="Benjamín Tomás Román Fernández - CV Online">
+  <meta property="og:description" content="Ingeniero Comercial con experiencia en Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="foto_benjamin.jpg">
+  <meta property="og:url" content="https://tuweb.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -18,7 +26,7 @@
 
   <!-- Ajustes finos visuales -->
   <style>
-    /* Asegura listas justificadas sin sangría residual */
+    /* Listas justificadas sin sangría residual */
     ul { 
       margin-left: 0; 
       padding-left: 0; 
@@ -52,6 +60,25 @@
       background-color: #f0f0f0;
       font-size: 18px;
     }
+
+    /* Focus visible para accesibilidad */
+    a:focus, button:focus, input:focus, textarea:focus {
+      outline: 2px solid #0073e6;
+      outline-offset: 2px;
+    }
+
+    /* Modo oscuro */
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    body.dark-mode .hero img {
+      box-shadow: 0 4px 8px rgba(255,255,255,0.2);
+    }
+    body.dark-mode .toggle-darkmode {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
   </style>
 </head>
 <body>
@@ -62,7 +89,7 @@
   </button>
 
   <!-- Portada -->
-  <header class="hero">
+  <header class="hero" role="banner">
     <img src="foto_benjamin.jpg.jpg" alt="Foto profesional de Benjamín Tomás Román Fernández">
     <h1>Benjamín Tomás Román Fernández</h1>
     <h2>Ingeniero Comercial – Universidad de Chile</h2>
@@ -75,7 +102,7 @@
   </header>
 
   <!-- Perfil -->
-  <section id="perfil">
+  <section id="perfil" role="region" aria-label="Perfil profesional">
     <h2>Perfil Profesional</h2>
     <p>
       Ingeniero Comercial de la Universidad de Chile, con experiencia liderando proyectos de Ecommerce, gestión de operaciones y análisis de datos en grandes empresas como Falabella.com, Kitchen Center y The Brands Club. 
@@ -84,10 +111,10 @@
   </section>
 
   <!-- Experiencia -->
-  <section id="experiencia">
+  <section id="experiencia" role="region" aria-label="Experiencia profesional">
     <h2>Experiencia Profesional</h2>
 
-    <div class="tarjeta">
+    <div class="tarjeta" role="region" aria-label="Experiencia en The Brands Club como Jefe Ecommerce">
       <h3>The Brands Club | Jefe Ecommerce <span>(09/2024 – 03/2025)</span> | Santiago, Chile</h3>
       <ul>
         <li>Reemplazo de Jefe de Ecommerce Canal Directo, liderando iniciativas de comercio electrónico.</li>
@@ -96,7 +123,7 @@
       </ul>
     </div>
 
-    <div class="tarjeta">
+    <div class="tarjeta" role="region" aria-label="Experiencia en Falabella.com como Category Manager">
       <h3>Falabella.com | Category Manager <span>(2022 – 2024)</span> | Santiago, Chile</h3>
       <ul>
         <li>Desarrollo de proyectos estratégicos en el área de Retiro en Tienda, optimizando procesos y experiencia de usuario.</li>
@@ -105,7 +132,7 @@
       </ul>
     </div>
 
-    <div class="tarjeta">
+    <div class="tarjeta" role="region" aria-label="Experiencia en Kitchen Center como Category Manager">
       <h3>Kitchen Center | Category Manager <span>(2021 – 2022)</span> | Santiago, Chile</h3>
       <ul>
         <li>Generación de reportes semanales de inventario y ventas.</li>
@@ -114,7 +141,7 @@
       </ul>
     </div>
 
-    <div class="tarjeta">
+    <div class="tarjeta" role="region" aria-label="Práctica profesional en Kiosclub American Supermarket">
       <h3>Kiosclub American Supermarket | Práctica Profesional <span>(2020)</span> | Santiago, Chile</h3>
       <ul>
         <li>Gestión del sitio web mediante Prestashop y organización de datos con Excel.</li>
@@ -125,7 +152,7 @@
   </section>
 
   <!-- Educación -->
-  <section id="educacion">
+  <section id="educacion" role="region" aria-label="Educación">
     <h2>Educación</h2>
     <p>
       Ingeniería Comercial – Universidad de Chile <span>(03/2016 – 12/2020)</span><br>
@@ -134,7 +161,7 @@
   </section>
 
   <!-- Habilidades -->
-  <section id="habilidades">
+  <section id="habilidades" role="region" aria-label="Herramientas y tecnologías">
     <h2>Herramientas y Tecnologías</h2>
     <ul>
       <li>Excel (Experto): análisis y procesamiento de datos.</li>
@@ -145,7 +172,7 @@
   </section>
 
   <!-- Idiomas -->
-  <section id="idiomas">
+  <section id="idiomas" role="region" aria-label="Idiomas">
     <h2>Idiomas</h2>
     <ul>
       <li>Español: Nativo</li>
@@ -154,13 +181,14 @@
   </section>
 
   <!-- CV -->
-  <section id="cv">
+  <section id="cv" role="region" aria-label="CV interactivo">
     <h2>Mi CV Interactivo</h2>
+    <!-- PDF.js para mejor compatibilidad en navegadores -->
     <iframe src="CV%20Benjamin%20Roman%202025.pdf" width="100%" height="600px" title="CV Interactivo de Benjamín Tomás Román Fernández"></iframe>
   </section>
 
   <!-- Contacto -->
-  <section id="contacto">
+  <section id="contacto" role="region" aria-label="Contacto">
     <h2>Contacto</h2>
     <p>Puedes escribirme a través de este formulario o usar mis datos directos de contacto:</p>
 
@@ -217,5 +245,13 @@
   <!-- Scripts -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="script.js"></script>
+  <script>
+    // Toggle Dark Mode + icon change
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const icon = document.getElementById('darkmode-icon');
+      icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    }
+  </script>
 </body>
 </html>
