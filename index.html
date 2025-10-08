@@ -13,13 +13,27 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <!-- CSS -->
+  <!-- CSS principal -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Ajustes finos visuales -->
+  <style>
+    /* Asegura listas justificadas sin sangría residual */
+    ul { 
+      margin-left: 0; 
+      padding-left: 0; 
+      list-style-position: inside; 
+    }
+    li { 
+      text-align: justify; 
+      margin-bottom: 4px; 
+    }
+  </style>
 </head>
 <body>
 
   <!-- Botón Modo Oscuro -->
-  <button class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar/desactivar modo oscuro">
+  <button type="button" class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar o desactivar modo oscuro">
     <span id="darkmode-icon">🌙</span>
   </button>
 
@@ -40,7 +54,7 @@
     <h2>Perfil Profesional</h2>
     <p>
       Ingeniero Comercial de la Universidad de Chile, con experiencia liderando proyectos de Ecommerce, gestión de operaciones y análisis de datos en grandes empresas como Falabella.com, Kitchen Center y The Brands Club. 
-      Apasionado por la transformación digital y la optimización de procesos mediante Inteligencia Artificial, utilizando herramientas de AI-assisted coding (Vibe Coding) y automatización de reportes para potenciar análisis y resultados comerciales y eficiencia operativa.
+      Apasionado por la transformación digital y la optimización de procesos mediante Inteligencia Artificial, utilizando herramientas de AI-assisted coding (Vibe Coding) y automatización de reportes para potenciar análisis, resultados comerciales y eficiencia operativa.
     </p>
   </section>
 
