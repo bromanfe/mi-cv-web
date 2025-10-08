@@ -20,12 +20,12 @@ body {
    =========================== */
 header.hero {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* permite ajuste en pantallas pequeñas */
     align-items: center;
-    justify-content: flex-start;
-    max-width: 900px;
+    justify-content: center; /* centrado respecto a otras secciones */
+    max-width: 1000px;
     margin: 0 auto;
-    gap: 40px;
+    gap: 30px;
     padding: 60px 20px;
     background-color: #002147;
     color: #fff;
@@ -33,8 +33,8 @@ header.hero {
 }
 
 .hero-foto {
-    flex: 1 1 40%;
-    max-width: 300px;
+    flex: 0 1 35%; /* proporcional al espacio disponible */
+    max-width: 400px;
     min-width: 200px;
     width: 100%;
     border-radius: 10px;
@@ -48,7 +48,8 @@ header.hero {
 }
 
 .hero-info {
-    flex: 2 1 400px;
+    flex: 1 1 55%; /* se ajusta al espacio restante */
+    min-width: 250px;
 }
 
 header.hero h1 {
@@ -96,34 +97,60 @@ header.hero .botones .btn:focus-visible {
 /* ===========================
    Responsividad Header
    =========================== */
-@media (max-width: 768px) {
-    header.hero {
-        flex-direction: column;
-        text-align: center;
-        max-width: 100%;
-        padding: 40px 15px;
-    }
-
+@media (max-width: 900px) {
     .hero-foto {
-        max-width: 80%;
-        margin-bottom: 20px;
+        flex: 0 1 40%;
+        max-width: 35%;
+        min-width: 180px;
     }
 
     .hero-info {
-        flex: unset;
-        width: 100%;
+        flex: 1 1 55%;
+    }
+}
+
+@media (max-width: 600px) {
+    header.hero {
+        flex-wrap: nowrap; /* mantiene imagen a la izquierda */
+        justify-content: center; /* centrado global del header */
+        gap: 20px;
+    }
+
+    .hero-foto {
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+
+    .hero-info {
+        flex: 0 0 50%;
     }
 
     .hero-info .botones {
-        justify-content: center;
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
 }
 
 @media (max-width: 400px) {
-    header.hero .botones {
-        gap: 10px;
+    .hero-foto {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+
+    .hero-info {
+        flex: 0 0 55%;
+    }
+
+    .hero-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-info h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero-info p {
+        font-size: 1rem;
     }
 }
 
