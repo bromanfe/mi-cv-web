@@ -15,12 +15,36 @@ body {
     transition: background-color 0.4s, color 0.4s;
 }
 
-/* Encabezado / Portada */
+/* Encabezado / Portada con imagen a la izquierda */
 header.hero {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
     padding: 60px 20px;
     background: #002147;
     color: white;
+    flex-wrap: wrap;
+}
+
+/* Contenedor de la foto */
+.hero-foto {
+    flex: 1 1 250px;
+    max-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hero-foto img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Contenedor de la información */
+.hero-info {
+    flex: 2 1 400px;
 }
 
 header.hero h1 {
@@ -43,7 +67,7 @@ header.hero p {
 
 header.hero .botones {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 12px;
 }
@@ -64,6 +88,18 @@ header.hero .botones .btn:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     outline: none;
+}
+
+/* Responsividad: vertical en móvil */
+@media (max-width: 600px) {
+    header.hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-info .botones {
+        justify-content: center;
+    }
 }
 
 /* Secciones generales */
