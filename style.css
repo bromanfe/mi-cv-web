@@ -50,6 +50,8 @@ header.hero {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: cover; /* Nueva mejora */
+    max-width: 100%;   /* Nueva mejora para móviles */
 }
 
 .hero-foto:hover {
@@ -86,6 +88,7 @@ header.hero .botones {
 }
 
 header.hero .botones .btn {
+    flex: 1 1 auto; /* Nueva mejora para expansión uniforme */
     padding: 12px 28px;
     background: #f0b429;
     color: #002147;
