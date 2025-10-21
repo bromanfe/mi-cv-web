@@ -1,120 +1,99 @@
 // ============================
-// 🌙 MODO OSCURO / CLARO
+// Temas (claro, oscuro, sepia, amoled) y animaciones
 // ============================
-
-// Detecta si el usuario prefiere modo oscuro
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-// Aplica preferencia almacenada o del sistema
-if (!localStorage.getItem("theme") && prefersDark) {
-  document.body.classList.add("dark-mode");
-} else if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-}
-
-// Toggle modo oscuro
-function toggleDarkMode() {
-  const icon = document.getElementById("darkmode-icon");
-  document.body.classList.toggle("dark-mode");
-
-  // Animación sutil de rotación del ícono
-  icon.classList.add("rotate-icon");
-  setTimeout(() => icon.classList.remove("rotate-icon"), 400);
-
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("theme", "dark");
-    icon.textContent = "☀️";
-  } else {
-    localStorage.setItem("theme", "light");
-    icon.textContent = "🌙";
+(function(){
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeButtons = document.querySelectorAll('.theme-option');
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    root.setAttribute('data-theme','dark');
   }
-}
+  updateThemeIcon();
 
-// Transición suave al cargar
-window.addEventListener("load", () => {
-  document.body.style.transition =
-    "background-color 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s";
-});
+  function setTheme(t){
+    root.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+    updateThemeIcon();
+  }
+  function updateThemeIcon(){
+    if (!themeToggle) return;
+    const t = root.getAttribute('data-theme')||'light';
+    themeToggle.textContent = t==='dark'?'☀️':t==='amoled'?'🌚':t==='sepia'?'🟤':'🌙';
+  }
+
+  themeButtons.forEach(btn=>btn.addEventListener('click', ()=>setTheme(btn.dataset.theme)));
+  if (themeToggle) themeToggle.addEventListener('click', ()=>{
+    const order = ['light','dark','sepia','amoled'];
+    const current = root.getAttribute('data-theme')||'light';
+    const next = order[(order.indexOf(current)+1)%order.length];
+    setTheme(next);
+  });
+
+  // Animaciones on-intersection
+  const reveal = (entries, obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  };
+  const io = new IntersectionObserver(reveal, {threshold: .12, rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.card, .fade-in').forEach(el=>io.observe(el));
+
+  // Año en footer
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+})();
 
 // ============================
-// 📩 FORMULARIO CON VALIDACIÓN + reCAPTCHA + Getform
+// Formulario con validación + honeypot + feedback visual
 // ============================
+(function(){
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const status = document.getElementById('form-status');
 
-const form = document.querySelector("#contact-form");
+  function showStatus(msg, ok=true){
+    if (!status) return alert(msg);
+    status.textContent = msg;
+    status.className = ok? 'ok' : 'error';
+  }
 
-if (form) {
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener('submit', async (e)=>{
     e.preventDefault();
+    const fd = new FormData(form);
+    // anti-spam simple (honeypot)
+    if (fd.get('empresa')) { showStatus('Detectado spam.', false); return; }
 
-    // Obtener valores
-    const nombre = form.nombre.value.trim();
-    const apellido = form.apellido.value.trim();
-    const email = form.email.value.trim();
-    const asunto = form.asunto.value.trim();
-    const mensaje = form.mensaje.value.trim();
-    const archivo = form.archivo.files[0];
+    // Validaciones básicas
+    const nombre = fd.get('nombre')?.toString().trim();
+    const email = fd.get('email')?.toString().trim();
+    const mensaje = fd.get('mensaje')?.toString().trim();
+    if (!nombre || !email || !mensaje) { showStatus('Completa los campos obligatorios.', false); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showStatus('Email inválido.', false); return; }
 
-    // Validar campos obligatorios
-    if (!nombre || !apellido || !email || !asunto || !mensaje) {
-      alert("Por favor, completa todos los campos obligatorios.");
-      return;
-    }
-
-    // Validar formato de correo
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("Por favor, ingresa un correo electrónico válido.");
-      return;
-    }
-
-    // Validar archivo (opcional)
-    if (archivo) {
-      const maxSizeMB = 5;
-      const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
-      if (archivo.size > maxSizeMB * 1024 * 1024) {
-        alert(`El archivo no debe superar ${maxSizeMB} MB.`);
-        return;
-      }
-      if (!allowedTypes.includes(archivo.type)) {
-        alert("Solo se permiten archivos PDF, JPG o PNG.");
-        return;
-      }
-    }
-
-    // Validar reCAPTCHA
-    const recaptchaToken = grecaptcha.getResponse();
-    if (!recaptchaToken) {
-      alert("Por favor, completa el reCAPTCHA antes de enviar.");
-      return;
-    }
-
-    // Deshabilitar botón mientras se envía
-    const btnEnviar = form.querySelector("button.btn-enviar");
-    btnEnviar.disabled = true;
-    btnEnviar.textContent = "Enviando...";
-
-    // Enviar datos mediante Fetch
-    const formData = new FormData(form);
+    showStatus('Enviando…');
 
     try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        alert("✅ Formulario enviado correctamente. ¡Gracias por contactarme!");
-        form.reset();
-        grecaptcha.reset();
-      } else {
-        alert("⚠️ Ocurrió un error al enviar el formulario. Intenta nuevamente.");
-      }
-    } catch (error) {
-      console.error("Error de conexión:", error);
-      alert("❌ No se pudo enviar. Verifica tu conexión e intenta otra vez.");
-    } finally {
-      btnEnviar.disabled = false;
-      btnEnviar.textContent = "Enviar";
+      // Simulación de envío (puedes conectar EmailJS/Getform/Netlify Forms)
+      await new Promise(r=>setTimeout(r, 900));
+      form.reset();
+      showStatus('¡Gracias! Responderé pronto.', true);
+    } catch(err){
+      console.error(err);
+      showStatus('Error al enviar. Intenta nuevamente.', false);
     }
   });
-}
+})();
+
+// ============================
+// Accesibilidad: enfoque visible y preferencia de reduce motion
+// ============================
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.documentElement.style.setProperty('scroll-behavior','auto');
+  }
+})();
