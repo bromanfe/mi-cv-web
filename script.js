@@ -15,21 +15,10 @@ if (!localStorage.getItem("theme") && prefersDark) {
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
   const icon = document.getElementById("darkmode-icon");
-
-  // Animación sutil de rotación del ícono con easing
-  icon.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
-  icon.style.transform = "rotate(360deg)";
-  setTimeout(() => {
-    icon.style.transform = "rotate(0deg)";
-  }, 500);
-
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("theme", "dark");
-    icon.textContent = "☀️";
-  } else {
-    localStorage.setItem("theme", "light");
-    icon.textContent = "🌙";
-  }
+  const btn = document.querySelector(".toggle-darkmode");
+  const isDark = document.body.classList.contains("dark-mode");
+  icon.textContent = isDark ? "☀️" : "🌙";
+  btn.setAttribute("aria-pressed", isDark ? "true" : "false");
 }
 
 // Transición suave al cargar
@@ -105,3 +94,27 @@ if (form) {
     }
   });
 }
+
+// ============================
+// 🌐 CAMBIO DE IDIOMA ES-EN
+// ============================
+
+const languageSwitcher = document.getElementById("language-switcher");
+
+languageSwitcher.addEventListener("change", (e) => {
+  const selectedLang = e.target.value;
+  document.querySelectorAll(".lang-es").forEach((el) => {
+    el.style.display = selectedLang === "es" ? "" : "none";
+  });
+  document.querySelectorAll(".lang-en").forEach((el) => {
+    el.style.display = selectedLang === "en" ? "" : "none";
+  });
+  localStorage.setItem("selectedLanguage", selectedLang);
+});
+
+// Al cargar la página, aplicar idioma guardado o español por defecto
+window.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("selectedLanguage") || "es";
+  languageSwitcher.value = savedLang;
+  languageSwitcher.dispatchEvent(new Event("change"));
+});
