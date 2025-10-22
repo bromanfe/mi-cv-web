@@ -85,166 +85,171 @@
   </style>
 </head>
 <body>
-
   <!-- Botón Modo Oscuro -->
-  <button type="button" class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar o desactivar modo oscuro">
-    <span id="darkmode-icon">🌙</span>
+  <button type="button" class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar o desactivar modo oscuro" aria-pressed="false" aria-live="polite" aria-controls="main-content">
+    <span id="darkmode-icon" role="img" aria-label="Icono modo oscuro">🌙</span>
   </button>
 
-  <!-- Portada -->
-<header class="hero" role="banner">
-  <div class="hero-foto">
-    <img src="foto_benjamin.jpg" alt="Foto profesional de Benjamín Tomás Román Fernández">
-  </div>
-  <div class="hero-info">
-    <h1>Benjamín Tomás Román Fernández</h1>
-    <h2>Ingeniero Comercial – Universidad de Chile</h2>
-    <p>Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding</p>
-    <div class="botones">
-      <a href="CV%20Benjamin%20Roman%202025.pdf" target="_blank" class="btn" aria-label="Descargar CV de Benjamín Román">Descargar CV</a>
-      <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" class="btn" aria-label="Perfil LinkedIn de Benjamín Román">LinkedIn</a>
-      <a href="#contacto" class="btn" aria-label="Ir a sección de contacto de Benjamín Román">Contacto</a>
-    </div>
-  </div>
-</header>
+  <!-- Contenedor principal -->
+  <main id="main-content" tabindex="-1">
 
-  <!-- Perfil -->
-  <section id="perfil" role="region" aria-label="Perfil profesional">
-    <h2>Perfil Profesional</h2>
-    <p>
-      Ingeniero Comercial de la Universidad de Chile, con experiencia liderando proyectos de Ecommerce, gestión de operaciones y análisis de datos en grandes empresas como Falabella.com, Kitchen Center y The Brands Club. 
-      Apasionado por la transformación digital y la optimización de procesos mediante Inteligencia Artificial, utilizando herramientas de AI-assisted coding (Vibe Coding) y automatización de reportes para potenciar análisis, resultados comerciales y eficiencia operativa.
-    </p>
-  </section>
+    <!-- Portada -->
+    <header class="hero" role="banner" aria-label="Portada con foto y datos principales">
+      <div class="hero-foto">
+        <img src="foto_benjamin.jpg" alt="Foto profesional de Benjamín Tomás Román Fernández">
+      </div>
+      <div class="hero-info">
+        <h1>Benjamín Tomás Román Fernández</h1>
+        <h2>Ingeniero Comercial – Universidad de Chile</h2>
+        <p>Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding</p>
+        <nav aria-label="Enlaces importantes de navegación">
+          <ul class="botones" role="list">
+            <li><a href="CV%20Benjamin%20Roman%202025.pdf" target="_blank" class="btn" aria-label="Descargar CV de Benjamín Román">Descargar CV</a></li>
+            <li><a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" class="btn" aria-label="Perfil LinkedIn de Benjamín Román">LinkedIn</a></li>
+            <li><a href="#contacto" class="btn" aria-label="Ir a sección de contacto de Benjamín Román">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <!-- Experiencia -->
-  <section id="experiencia" role="region" aria-label="Experiencia profesional">
-    <h2>Experiencia Profesional</h2>
+    <!-- Perfil -->
+    <section id="perfil" role="region" aria-labelledby="perfil-title">
+      <h2 id="perfil-title">Perfil Profesional</h2>
+      <p>
+        Ingeniero Comercial de la Universidad de Chile, con experiencia liderando proyectos de Ecommerce, gestión de operaciones y análisis de datos en grandes empresas como Falabella.com, Kitchen Center y The Brands Club. 
+        Apasionado por la transformación digital y la optimización de procesos mediante Inteligencia Artificial, utilizando herramientas de AI-assisted coding (Vibe Coding) y automatización de reportes para potenciar análisis, resultados comerciales y eficiencia operativa.
+      </p>
+    </section>
 
-    <div class="tarjeta" role="region" aria-label="Experiencia en The Brands Club como Jefe Ecommerce">
-      <h3>The Brands Club | Jefe Ecommerce <span>(09/2024 – 03/2025)</span> | Santiago, Chile</h3>
+    <!-- Experiencia -->
+    <section id="experiencia" role="region" aria-labelledby="experiencia-title">
+      <h2 id="experiencia-title">Experiencia Profesional</h2>
+
+      <article class="tarjeta" role="article" aria-labelledby="experiencia-brandsclub">
+        <h3 id="experiencia-brandsclub">The Brands Club | Jefe Ecommerce <span>(09/2024 – 03/2025)</span> | Santiago, Chile</h3>
+        <ul>
+          <li>Reemplazo de Jefe de Ecommerce Canal Directo, liderando iniciativas de comercio electrónico.</li>
+          <li>Uso de inteligencia y análisis de datos para optimizar rendimiento del sitio y generación de reportes estratégicos.</li>
+          <li>Mejora de ventas y experiencia del cliente mediante decisiones basadas en datos.</li>
+        </ul>
+      </article>
+
+      <article class="tarjeta" role="article" aria-labelledby="experiencia-falabella">
+        <h3 id="experiencia-falabella">Falabella.com | Category Manager <span>(2022 – 2024)</span> | Santiago, Chile</h3>
+        <ul>
+          <li>Desarrollo de proyectos estratégicos en el área de Retiro en Tienda, optimizando procesos y experiencia de usuario.</li>
+          <li>Diseño y ejecución de campañas estratégicas de notificaciones push segmentadas para mobile app.</li>
+          <li>Análisis y uso de datos y tendencias para mejorar la efectividad de campañas.</li>
+        </ul>
+      </article>
+
+      <article class="tarjeta" role="article" aria-labelledby="experiencia-kitchencenter">
+        <h3 id="experiencia-kitchencenter">Kitchen Center | Category Manager <span>(2021 – 2022)</span> | Santiago, Chile</h3>
+        <ul>
+          <li>Generación de reportes semanales de inventario y ventas.</li>
+          <li>Apoyo a Purchase Managers en flujo de compra-venta y toma de decisiones basadas en datos.</li>
+          <li>Liderazgo de proyecto interno de gestión de muestras, optimizando eficiencia operativa.</li>
+        </ul>
+      </article>
+
+      <article class="tarjeta" role="article" aria-labelledby="experiencia-kiosclub">
+        <h3 id="experiencia-kiosclub">Kiosclub American Supermarket | Práctica Profesional <span>(2020)</span> | Santiago, Chile</h3>
+        <ul>
+          <li>Gestión del sitio web mediante Prestashop y organización de datos con Excel.</li>
+          <li>Apoyo en proyectos comerciales internacionales, estableciendo contactos con proveedores en EE.UU. y Europa.</li>
+          <li>Aplicación de inteligencia comercial y análisis de datos para incrementar la oferta de productos.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Educación -->
+    <section id="educacion" role="region" aria-labelledby="educacion-title">
+      <h2 id="educacion-title">Educación</h2>
+      <p>
+        Ingeniería Comercial – Universidad de Chile <span>(03/2016 – 12/2020)</span><br>
+        Mención en Administración de Empresas
+      </p>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" role="region" aria-labelledby="habilidades-title">
+      <h2 id="habilidades-title">Herramientas y Tecnologías</h2>
       <ul>
-        <li>Reemplazo de Jefe de Ecommerce Canal Directo, liderando iniciativas de comercio electrónico.</li>
-        <li>Uso de inteligencia y análisis de datos para optimizar rendimiento del sitio y generación de reportes estratégicos.</li>
-        <li>Mejora de ventas y experiencia del cliente mediante decisiones basadas en datos.</li>
+        <li>Excel (Experto): análisis y procesamiento de datos.</li>
+        <li>SQL (Básico-Intermedio): consultas y subconsultas.</li>
+        <li>SAP HANA (Básico): manejo de inventario y órdenes de compra.</li>
+        <li>Python / AI-assisted Coding: automatización de reportes y análisis de datos con IA.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="tarjeta" role="region" aria-label="Experiencia en Falabella.com como Category Manager">
-      <h3>Falabella.com | Category Manager <span>(2022 – 2024)</span> | Santiago, Chile</h3>
+    <!-- Idiomas -->
+    <section id="idiomas" role="region" aria-labelledby="idiomas-title">
+      <h2 id="idiomas-title">Idiomas</h2>
       <ul>
-        <li>Desarrollo de proyectos estratégicos en el área de Retiro en Tienda, optimizando procesos y experiencia de usuario.</li>
-        <li>Diseño y ejecución de campañas estratégicas de notificaciones push segmentadas para mobile app.</li>
-        <li>Análisis y uso de datos y tendencias para mejorar la efectividad de campañas.</li>
+        <li>Español: Nativo</li>
+        <li>Inglés: Avanzado (oral y escrito)</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="tarjeta" role="region" aria-label="Experiencia en Kitchen Center como Category Manager">
-      <h3>Kitchen Center | Category Manager <span>(2021 – 2022)</span> | Santiago, Chile</h3>
+    <!-- CV -->
+    <section id="cv" role="region" aria-labelledby="cv-title">
+      <h2 id="cv-title">Mi CV Interactivo</h2>
+      <iframe src="CV%20Benjamin%20Roman%202025.pdf" width="100%" height="600px" title="CV Interactivo de Benjamín Tomás Román Fernández"></iframe>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" role="region" aria-labelledby="contacto-title">
+      <h2 id="contacto-title">Contacto</h2>
+      <p>Puedes escribirme a través de este formulario o usar mis datos directos de contacto:</p>
+
       <ul>
-        <li>Generación de reportes semanales de inventario y ventas.</li>
-        <li>Apoyo a Purchase Managers en flujo de compra-venta y toma de decisiones basadas en datos.</li>
-        <li>Liderazgo de proyecto interno de gestión de muestras, optimizando eficiencia operativa.</li>
+        <li>Email: <a href="mailto:broman@fen.uchile.cl">broman@fen.uchile.cl</a></li>
+        <li>Teléfono: +56 9 97701521</li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" rel="noopener">benjamin-roman-fernandez</a></li>
       </ul>
-    </div>
 
-    <div class="tarjeta" role="region" aria-label="Práctica profesional en Kiosclub American Supermarket">
-      <h3>Kiosclub American Supermarket | Práctica Profesional <span>(2020)</span> | Santiago, Chile</h3>
-      <ul>
-        <li>Gestión del sitio web mediante Prestashop y organización de datos con Excel.</li>
-        <li>Apoyo en proyectos comerciales internacionales, estableciendo contactos con proveedores en EE.UU. y Europa.</li>
-        <li>Aplicación de inteligencia comercial y análisis de datos para incrementar la oferta de productos.</li>
-      </ul>
-    </div>
-  </section>
+      <h3>Formulario de contacto</h3>
+      <form id="contact-form" action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data" novalidate>
+        <div class="form-group">
+          <label for="nombre">Nombre*</label>
+          <input type="text" id="nombre" name="nombre" required aria-required="true">
+        </div>
 
-  <!-- Educación -->
-  <section id="educacion" role="region" aria-label="Educación">
-    <h2>Educación</h2>
-    <p>
-      Ingeniería Comercial – Universidad de Chile <span>(03/2016 – 12/2020)</span><br>
-      Mención en Administración de Empresas
-    </p>
-  </section>
+        <div class="form-group">
+          <label for="apellido">Apellido*</label>
+          <input type="text" id="apellido" name="apellido" required aria-required="true">
+        </div>
 
-  <!-- Habilidades -->
-  <section id="habilidades" role="region" aria-label="Herramientas y tecnologías">
-    <h2>Herramientas y Tecnologías</h2>
-    <ul>
-      <li>Excel (Experto): análisis y procesamiento de datos.</li>
-      <li>SQL (Básico-Intermedio): consultas y subconsultas.</li>
-      <li>SAP HANA (Básico): manejo de inventario y órdenes de compra.</li>
-      <li>Python / AI-assisted Coding: automatización de reportes y análisis de datos con IA.</li>
-    </ul>
-  </section>
+        <div class="form-group">
+          <label for="email">Correo electrónico*</label>
+          <input type="email" id="email" name="email" required aria-required="true">
+        </div>
 
-  <!-- Idiomas -->
-  <section id="idiomas" role="region" aria-label="Idiomas">
-    <h2>Idiomas</h2>
-    <ul>
-      <li>Español: Nativo</li>
-      <li>Inglés: Avanzado (oral y escrito)</li>
-    </ul>
-  </section>
+        <div class="form-group">
+          <label for="asunto">Asunto*</label>
+          <input type="text" id="asunto" name="asunto" required aria-required="true">
+        </div>
 
-  <!-- CV -->
-  <section id="cv" role="region" aria-label="CV interactivo">
-    <h2>Mi CV Interactivo</h2>
-    <iframe src="CV%20Benjamin%20Roman%202025.pdf" width="100%" height="600px" title="CV Interactivo de Benjamín Tomás Román Fernández"></iframe>
-  </section>
+        <div class="form-group">
+          <label for="mensaje">Mensaje*</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true"></textarea>
+        </div>
 
-  <!-- Contacto -->
-  <section id="contacto" role="region" aria-label="Contacto">
-    <h2>Contacto</h2>
-    <p>Puedes escribirme a través de este formulario o usar mis datos directos de contacto:</p>
+        <div class="form-group">
+          <label for="archivo">Adjuntar archivo (opcional)</label>
+          <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
+        </div>
 
-    <ul>
-      <li>Email: <a href="mailto:broman@fen.uchile.cl">broman@fen.uchile.cl</a></li>
-      <li>Teléfono: +56 9 97701521</li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank">benjamin-roman-fernandez</a></li>
-    </ul>
+        <!-- reCAPTCHA v2 -->
+        <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI" aria-label="reCAPTCHA"></div>
 
-    <h3>Formulario de contacto</h3>
-    <form id="contact-form" action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="nombre">Nombre*</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
-
-      <div class="form-group">
-        <label for="apellido">Apellido*</label>
-        <input type="text" id="apellido" name="apellido" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Correo electrónico*</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-
-      <div class="form-group">
-        <label for="asunto">Asunto*</label>
-        <input type="text" id="asunto" name="asunto" required>
-      </div>
-
-      <div class="form-group">
-        <label for="mensaje">Mensaje*</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="archivo">Adjuntar archivo (opcional)</label>
-        <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
-      </div>
-
-      <!-- reCAPTCHA v2 -->
-      <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI"></div>
-
-      <button type="submit" class="btn-enviar">Enviar</button>
-    </form>
-  </section>
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer id="privacidad">
+  <footer id="privacidad" role="contentinfo">
     <p>Esta web no almacena datos de visitantes. Solo contiene información profesional para contacto laboral.</p>
   </footer>
 
@@ -252,11 +257,14 @@
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="script.js"></script>
   <script>
-    // Toggle Dark Mode + icon change
+    // Toggle Dark Mode + icon change with accessibility update of aria-pressed
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       const icon = document.getElementById('darkmode-icon');
-      icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      const btn = document.querySelector('.toggle-darkmode');
+      const isDark = document.body.classList.contains('dark-mode');
+      icon.textContent = isDark ? '☀️' : '🌙';
+      btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
     }
   </script>
 </body>
