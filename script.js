@@ -96,25 +96,33 @@ if (form) {
 }
 
 // ============================
-// 🌐 CAMBIO DE IDIOMA ES-EN
+// 🌐 CAMBIO DE IDIOMA CON BOTONES TOGGLE
 // ============================
 
-const languageSwitcher = document.getElementById("language-switcher");
+const langButtons = document.querySelectorAll('.lang-btn');
 
-languageSwitcher.addEventListener("change", (e) => {
-  const selectedLang = e.target.value;
-  document.querySelectorAll(".lang-es").forEach((el) => {
-    el.style.display = selectedLang === "es" ? "" : "none";
+langButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const selectedLang = button.getAttribute('data-lang');
+
+    langButtons.forEach(btn => {
+      btn.classList.toggle('active', btn === button);
+      btn.setAttribute('aria-pressed', btn === button ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.lang-es').forEach(el => {
+      el.style.display = selectedLang === 'es' ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-en').forEach(el => {
+      el.style.display = selectedLang === 'en' ? '' : 'none';
+    });
+
+    localStorage.setItem('selectedLanguage', selectedLang);
   });
-  document.querySelectorAll(".lang-en").forEach((el) => {
-    el.style.display = selectedLang === "en" ? "" : "none";
-  });
-  localStorage.setItem("selectedLanguage", selectedLang);
 });
 
-// Al cargar la página, aplicar idioma guardado o español por defecto
-window.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("selectedLanguage") || "es";
-  languageSwitcher.value = savedLang;
-  languageSwitcher.dispatchEvent(new Event("change"));
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLanguage') || 'es';
+  const activeButton = [...langButtons].find(btn => btn.getAttribute('data-lang') === savedLang);
+  if (activeButton) activeButton.click();
 });
