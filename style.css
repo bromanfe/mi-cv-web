@@ -121,7 +121,7 @@ h1, h2, h3 {
     font-weight: 700;
     color: #002147;
     margin-top: 0;
-    margin-bottom: 0.6em;
+    margin-bottom: 1em; /* Ajuste aquí para separación consistente */
 }
 
 h1 {
@@ -141,12 +141,12 @@ h3 {
 }
 
 /* ===========================
-   Secciones
+   Secciones (con padding y margin ajustados)
    =========================== */
 section {
-    padding: 60px 30px;
+    padding: 70px 40px; /* Más espacio interno */
     max-width: 900px;
-    margin: 40px auto;
+    margin: 50px auto;  /* Mayor separación externa */
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
@@ -159,25 +159,25 @@ section ul {
     font-size: 1rem;
     color: #333333;
     text-align: justify;
-    margin-bottom: 1em;
-    line-height: 1.8;
+    margin-bottom: 1.2em; /* Más separación entre párrafos y listas */
+    line-height: 1.9;
 }
 
 ul {
-    padding-left: 1.6em;
+    padding-left: 2em; /* Mejor sangría en listas */
     list-style-type: disc;
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Más espacio entre ítems */
 }
 
 /* ===========================
-   Tarjetas
+   Tarjetas (padding y margin más generosos)
    =========================== */
 .tarjeta {
-    padding: 25px 20px;
-    margin: 20px 0;
+    padding: 30px 25px; /* Espacio interno aumentada */
+    margin: 25px 0;     /* Separación vertical mayor */
     background: #f9f9f9;
     border-radius: 12px;
     transition: background 0.3s, box-shadow 0.3s;
@@ -238,12 +238,12 @@ iframe {
 }
 
 /* ===========================
-   Formulario
+   Formulario (espacios ajustados)
    =========================== */
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px; /* Más espacio entre campos */
     margin-top: 20px;
 }
 
@@ -254,7 +254,7 @@ form {
 
 label {
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 8px; /* Margen inferior aumentado */
     color: #002147;
     font-family: 'Merriweather', serif;
 }
@@ -299,6 +299,7 @@ button.btn-enviar {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
     font-family: 'Inter', 'Arial', sans-serif;
+    margin-top: 10px; /* Margen superior para separarlo */
 }
 
 button.btn-enviar:hover,
