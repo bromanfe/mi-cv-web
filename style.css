@@ -73,9 +73,11 @@ header.hero h1, header.hero h2, header.hero p {
     font-family: 'Merriweather', serif;
 }
 
+/* Ajuste de color para mejor legibilidad título principal */
 header.hero h1 {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 10px;
+    color: #ffd54f; /* Amarillo cálido */
 }
 
 header.hero h2 {
@@ -169,6 +171,12 @@ section ul {
     margin-bottom: 1.2em;
     line-height: 1.9;
     transition: color 0.3s ease;
+}
+
+/* Ajustes color párrafos y listas en modo oscuro para legibilidad */
+body.dark-mode section p,
+body.dark-mode section ul {
+    color: #dcdcdc; /* Gris claro */
 }
 
 ul {
