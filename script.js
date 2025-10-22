@@ -1,88 +1,111 @@
-// Toggle dark mode
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
+// ============================
+// 🌙 MODO OSCURO / CLARO
+// ============================
 
-// Check for saved theme preference or default to system preference
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme) {
-  body.classList.toggle('dark-mode', currentTheme === 'dark');
-  updateThemeIcon();
-} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  body.classList.add('dark-mode');
-  updateThemeIcon();
+// Detecta si el usuario prefiere modo oscuro
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+// Aplica preferencia almacenada o del sistema
+if (!localStorage.getItem("theme") && prefersDark) {
+  document.body.classList.add("dark-mode");
+} else if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
 }
 
-themeToggle.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
-  const isDark = body.classList.contains('dark-mode');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  updateThemeIcon();
-  themeToggle.style.transform = 'rotate(360deg)';
-  setTimeout(() => {
-    themeToggle.style.transform = 'rotate(0deg)';
-  }, 300);
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  const icon = document.getElementById("darkmode-icon");
+
+  // Animación sutil de rotación del ícono
+  icon.style.transition = "transform 0.4s ease";
+  icon.style.transform = "rotate(360deg)";
+  setTimeout(() => (icon.style.transform = "rotate(0deg)"), 400);
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    icon.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    icon.textContent = "🌙";
+  }
+}
+
+// Transición suave al cargar
+window.addEventListener("load", () => {
+  document.body.style.transition = "background-color 0.4s, color 0.4s";
 });
 
-function updateThemeIcon() {
-  const isDark = body.classList.contains('dark-mode');
-  themeToggle.textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19';
-}
+// ============================
+// 📩 FORMULARIO CON VALIDACIÓN + reCAPTCHA + Getform
+// ============================
 
-// PDF Viewer
-const openPdfBtn = document.getElementById('open-pdf');
-const closePdfBtn = document.getElementById('close-pdf');
-const pdfViewer = document.getElementById('pdf-viewer');
+const form = document.querySelector("#contact-form");
 
-if (openPdfBtn) {
-  openPdfBtn.addEventListener('click', () => {
-    pdfViewer.style.display = 'block';
-  });
-}
-
-if (closePdfBtn) {
-  closePdfBtn.addEventListener('click', () => {
-    pdfViewer.style.display = 'none';
-  });
-}
-
-// Form validation and submission
-const contactForm = document.getElementById('contact-form');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
+if (form) {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Get reCAPTCHA response
-    const recaptchaResponse = grecaptcha.getResponse();
-    
-    if (!recaptchaResponse) {
-      alert('Por favor, completa el reCAPTCHA');
+    // Obtener valores
+    const nombre = form.nombre.value.trim();
+    const apellido = form.apellido.value.trim();
+    const email = form.email.value.trim();
+    const asunto = form.asunto.value.trim();
+    const mensaje = form.mensaje.value.trim();
+    const archivo = form.archivo.files[0];
+
+    // Validar campos obligatorios
+    if (!nombre || !apellido || !email || !asunto || !mensaje) {
+      alert("Por favor, completa todos los campos obligatorios.");
       return;
     }
 
-    // Get form data
-    const formData = new FormData(contactForm);
-    formData.append('g-recaptcha-response', recaptchaResponse);
+    // Validar formato de correo
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Por favor, ingresa un correo electrónico válido.");
+      return;
+    }
+
+    // Validar archivo (opcional)
+    if (archivo) {
+      const maxSizeMB = 5;
+      const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
+      if (archivo.size > maxSizeMB * 1024 * 1024) {
+        alert(`El archivo no debe superar ${maxSizeMB} MB.`);
+        return;
+      }
+      if (!allowedTypes.includes(archivo.type)) {
+        alert("Solo se permiten archivos PDF, JPG o PNG.");
+        return;
+      }
+    }
+
+    // Validar reCAPTCHA
+    const recaptchaToken = grecaptcha.getResponse();
+    if (!recaptchaToken) {
+      alert("Por favor, completa el reCAPTCHA antes de enviar.");
+      return;
+    }
+
+    // Enviar datos mediante Fetch
+    const formData = new FormData(form);
 
     try {
-      // Here you would send the form data to your backend
-      // For now, we'll just show a success message
-      alert('Gracias por tu mensaje. Te contactar\u00e9 pronto!');
-      contactForm.reset();
-      grecaptcha.reset();
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        alert("✅ Formulario enviado correctamente. ¡Gracias por contactarme!");
+        form.reset();
+        grecaptcha.reset();
+      } else {
+        alert("⚠️ Ocurrió un error al enviar el formulario. Intenta nuevamente.");
+      }
     } catch (error) {
-      alert('Hubo un error al enviar el mensaje. Por favor, int\u00e9ntalo de nuevo.');
+      console.error("Error de conexión:", error);
+      alert("❌ No se pudo enviar. Verifica tu conexión e intenta otra vez.");
     }
   });
 }
-
-// Smooth scroll for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
