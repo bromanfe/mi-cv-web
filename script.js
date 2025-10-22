@@ -16,10 +16,12 @@ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
   const icon = document.getElementById("darkmode-icon");
 
-  // Animación sutil de rotación del ícono
-  icon.style.transition = "transform 0.4s ease";
+  // Animación sutil de rotación del ícono con easing
+  icon.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
   icon.style.transform = "rotate(360deg)";
-  setTimeout(() => (icon.style.transform = "rotate(0deg)"), 400);
+  setTimeout(() => {
+    icon.style.transform = "rotate(0deg)";
+  }, 500);
 
   if (document.body.classList.contains("dark-mode")) {
     localStorage.setItem("theme", "dark");
@@ -32,7 +34,7 @@ function toggleDarkMode() {
 
 // Transición suave al cargar
 window.addEventListener("load", () => {
-  document.body.style.transition = "background-color 0.4s, color 0.4s";
+  document.body.style.transition = "background-color 0.4s ease, color 0.4s ease";
 });
 
 // ============================
@@ -45,7 +47,6 @@ if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Obtener valores
     const nombre = form.nombre.value.trim();
     const apellido = form.apellido.value.trim();
     const email = form.email.value.trim();
@@ -53,20 +54,17 @@ if (form) {
     const mensaje = form.mensaje.value.trim();
     const archivo = form.archivo.files[0];
 
-    // Validar campos obligatorios
     if (!nombre || !apellido || !email || !asunto || !mensaje) {
       alert("Por favor, completa todos los campos obligatorios.");
       return;
     }
 
-    // Validar formato de correo
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       alert("Por favor, ingresa un correo electrónico válido.");
       return;
     }
 
-    // Validar archivo (opcional)
     if (archivo) {
       const maxSizeMB = 5;
       const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
@@ -80,14 +78,12 @@ if (form) {
       }
     }
 
-    // Validar reCAPTCHA
     const recaptchaToken = grecaptcha.getResponse();
     if (!recaptchaToken) {
       alert("Por favor, completa el reCAPTCHA antes de enviar.");
       return;
     }
 
-    // Enviar datos mediante Fetch
     const formData = new FormData(form);
 
     try {
