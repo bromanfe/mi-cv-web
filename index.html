@@ -44,13 +44,10 @@
 </head>
 <body>
   <!-- Selector de idioma -->
-  <div style="position: fixed; top: 1rem; left: 1rem; z-index:1001;">
-    <label for="language-switcher" style="color:#002147; font-weight:600;">Idioma / Language:</label>
-    <select id="language-switcher" aria-label="Cambiar idioma / Change language">
-      <option value="es">Español</option>
-      <option value="en">English</option>
-    </select>
-  </div>
+<div id="language-toggle" style="position: fixed; top: 1rem; left: 1rem; z-index:1001;">
+  <button aria-pressed="true" data-lang="es" class="lang-btn active" aria-label="Español">🇪🇸 Español</button>
+  <button aria-pressed="false" data-lang="en" class="lang-btn" aria-label="English">🇺🇸 English</button>
+</div>
 
   <!-- Botón Modo Oscuro -->
   <button type="button" class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar o desactivar modo oscuro" aria-pressed="false" aria-live="polite" aria-controls="main-content">
