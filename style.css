@@ -1,3 +1,6 @@
+/* Importar fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap');
+
 /* ===========================
    Reset y Estilos Generales
    =========================== */
@@ -14,6 +17,7 @@ html {
 
 body {
     font-family: 'Inter', 'Arial', sans-serif;
+    font-weight: 400;
     line-height: 1.6;
     background-color: #ffffff;
     color: #222222;
@@ -50,8 +54,8 @@ header.hero {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover; /* Nueva mejora */
-    max-width: 100%;   /* Nueva mejora para móviles */
+    object-fit: cover;
+    max-width: 100%;
 }
 
 .hero-foto:hover {
@@ -63,14 +67,17 @@ header.hero {
     min-width: 250px;
 }
 
+header.hero h1, header.hero h2, header.hero p {
+    font-family: 'Merriweather', serif;
+}
+
 header.hero h1 {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 10px;
-    color: #fff;
 }
 
 header.hero h2 {
-    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 15px;
     color: #e0e0e0;
 }
@@ -88,7 +95,7 @@ header.hero .botones {
 }
 
 header.hero .botones .btn {
-    flex: 1 1 auto; /* Nueva mejora para expansión uniforme */
+    flex: 1 1 auto;
     padding: 12px 28px;
     background: #f0b429;
     color: #002147;
@@ -107,12 +114,39 @@ header.hero .botones .btn:focus-visible {
 }
 
 /* ===========================
+   Encabezados para secciones y tarjetas
+   =========================== */
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    color: #002147;
+    margin-top: 0;
+    margin-bottom: 0.6em;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    border-bottom: 3px solid #f0b429;
+    padding-bottom: 6px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #004080;
+    margin-bottom: 0.5em;
+}
+
+/* ===========================
    Secciones
    =========================== */
 section {
-    padding: 50px 25px;
+    padding: 60px 30px;
     max-width: 900px;
-    margin: 30px auto;
+    margin: 40px auto;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
@@ -121,37 +155,26 @@ section {
 
 section p,
 section ul {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #333333;
     text-align: justify;
-    margin-bottom: 15px;
-    line-height: 1.7;
+    margin-bottom: 1em;
+    line-height: 1.8;
 }
 
 ul {
-    padding-left: 1.4em;
+    padding-left: 1.6em;
     list-style-type: disc;
 }
 
 li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
-/* Encabezados */
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    display: inline-block;
-    border-bottom: 3px solid #f0b429;
-    padding-bottom: 5px;
-    color: #222;
-}
-
-h3 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: #333;
-}
-
-/* Tarjetas */
+/* ===========================
+   Tarjetas
+   =========================== */
 .tarjeta {
     padding: 25px 20px;
     margin: 20px 0;
@@ -166,7 +189,9 @@ h3 {
     box-shadow: 0 8px 22px rgba(0,0,0,0.12);
 }
 
-/* Enlaces */
+/* ===========================
+   Enlaces
+   =========================== */
 a {
     color: #002147;
     text-decoration: none;
@@ -180,14 +205,18 @@ a:focus-visible {
     outline: none;
 }
 
-/* Iframes */
+/* ===========================
+   Iframes
+   =========================== */
 iframe {
     border-radius: 10px;
     border: 1px solid #ccc;
     width: 100%;
 }
 
-/* Botón modo oscuro */
+/* ===========================
+   Botón modo oscuro
+   =========================== */
 .toggle-darkmode {
     position: fixed;
     top: 1rem;
@@ -227,6 +256,7 @@ label {
     font-weight: 600;
     margin-bottom: 6px;
     color: #002147;
+    font-family: 'Merriweather', serif;
 }
 
 input, textarea, select {
@@ -236,6 +266,7 @@ input, textarea, select {
     font-size: 1em;
     background: #fff;
     color: #222;
+    font-family: 'Inter', 'Arial', sans-serif;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -267,6 +298,7 @@ button.btn-enviar {
     border: none;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    font-family: 'Inter', 'Arial', sans-serif;
 }
 
 button.btn-enviar:hover,
