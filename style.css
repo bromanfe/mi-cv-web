@@ -454,3 +454,31 @@ body.dark-mode select:focus {
         font-size: 1rem;
     }
 }
+
+#language-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.lang-btn {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 2px solid #f0b429;
+  background: #fff;
+  color: #002147;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(240,180,41,0.4);
+  user-select: none;
+  font-size: 0.9rem;
+}
+
+.lang-btn.active,
+.lang-btn:hover,
+.lang-btn:focus {
+  background-color: #f0b429;
+  color: #002147;
+  outline: none;
+}
+
