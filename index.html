@@ -2,109 +2,261 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benjamín Tomás Román Fernández - CV</title>
-  <meta name="description" content="CV de Benjamín Román - Ingeniero Comercial" />
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Meta tags SEO -->
+  <meta name="description" content="Benjamín Tomás Román Fernández - Ingeniero Comercial con experiencia en Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding. CV online, experiencia laboral y contacto.">
+  <meta name="keywords" content="Benjamín Román, Ingeniería Comercial, Ecommerce, Análisis de Datos, AI, Transformación Digital, CV online">
+  <meta name="author" content="Benjamín Tomás Román Fernández">
+
+  <!-- SEO social -->
+  <meta property="og:title" content="Benjamín Tomás Román Fernández - CV Online">
+  <meta property="og:description" content="Ingeniero Comercial con experiencia en Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="foto_benjamin.jpg">
+  <meta property="og:url" content="https://tuweb.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Ajustes finos visuales -->
+  <style>
+    /* Listas justificadas sin sangría residual */
+    ul { 
+      margin-left: 0; 
+      padding-left: 0; 
+      list-style-position: inside; 
+    }
+    li { 
+      text-align: justify; 
+      margin-bottom: 4px; 
+    }
+
+    /* Imagen de portada */
+    .hero img {
+      width: 150px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Botón modo oscuro */
+    .toggle-darkmode {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 999;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      font-size: 18px;
+    }
+
+    /* Focus visible para accesibilidad */
+    a:focus, button:focus, input:focus, textarea:focus {
+      outline: 2px solid #0073e6;
+      outline-offset: 2px;
+    }
+
+    /* Modo oscuro */
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    body.dark-mode .hero img {
+      box-shadow: 0 4px 8px rgba(255,255,255,0.2);
+    }
+    body.dark-mode .toggle-darkmode {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
-  <button id="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre modo oscuro y claro">🌙</button>
-  
-  <div class="hero">
-    <img src="foto_benjamin.jpg.jpg" alt="Benjamín Román" class="foto" />
-    <h1>Benjamín Tomás Román Fernández</h1>
-    <p class="subtitle">Ingeniero Comercial</p>
+
+  <!-- Botón Modo Oscuro -->
+  <button type="button" class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar o desactivar modo oscuro">
+    <span id="darkmode-icon">🌙</span>
+  </button>
+
+  <!-- Portada -->
+<header class="hero" role="banner">
+  <div class="hero-foto">
+    <img src="foto_benjamin.jpg.jpg" alt="Foto profesional de Benjamín Tomás Román Fernández">
   </div>
+  <div class="hero-info">
+    <h1>Benjamín Tomás Román Fernández</h1>
+    <h2>Ingeniero Comercial – Universidad de Chile</h2>
+    <p>Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding</p>
+    <div class="botones">
+      <a href="CV%20Benjamin%20Roman%202025.pdf" target="_blank" class="btn" aria-label="Descargar CV de Benjamín Román">Descargar CV</a>
+      <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" class="btn" aria-label="Perfil LinkedIn de Benjamín Román">LinkedIn</a>
+      <a href="#contacto" class="btn" aria-label="Ir a sección de contacto de Benjamín Román">Contacto</a>
+    </div>
+  </div>
+</header>
 
-  <main>
-    <section>
-      <h2>👤 Perfil</h2>
-      <p>Ingeniero Comercial con experiencia en estrategia comercial, análisis de datos y transformación digital. Especializado en Ecommerce y uso de herramientas de inteligencia artificial para optimizar procesos.</p>
-    </section>
 
-    <section>
-      <h2>💼 Experiencia</h2>
-      <div class="item">
-        <h3>Subgerente Comercial</h3>
-        <p class="meta">Leasing Andino | 2019 - Presente</p>
-        <ul>
-          <li>Estrategia comercial y expansión de productos</li>
-          <li>Análisis de datos y automatización de procesos</li>
-          <li>Implementación de dashboards de Power BI</li>
-        </ul>
-      </div>
-      <div class="item">
-        <h3>Ejecutivo Comercial</h3>
-        <p class="meta">Leasing Andino | 2015 - 2019</p>
-        <ul>
-          <li>Gestión de cartera de clientes corporativos</li>
-          <li>Análisis financiero y estructuración de operaciones</li>
-        </ul>
-      </div>
-    </section>
+  <!-- Perfil -->
+  <section id="perfil" role="region" aria-label="Perfil profesional">
+    <h2>Perfil Profesional</h2>
+    <p>
+      Ingeniero Comercial de la Universidad de Chile, con experiencia liderando proyectos de Ecommerce, gestión de operaciones y análisis de datos en grandes empresas como Falabella.com, Kitchen Center y The Brands Club. 
+      Apasionado por la transformación digital y la optimización de procesos mediante Inteligencia Artificial, utilizando herramientas de AI-assisted coding (Vibe Coding) y automatización de reportes para potenciar análisis, resultados comerciales y eficiencia operativa.
+    </p>
+  </section>
 
-    <section>
-      <h2>🎓 Educación</h2>
-      <div class="item">
-        <h3>Ingeniería Comercial</h3>
-        <p class="meta">Universidad Católica del Norte | 2009 - 2014</p>
-      </div>
-    </section>
+  <!-- Experiencia -->
+  <section id="experiencia" role="region" aria-label="Experiencia profesional">
+    <h2>Experiencia Profesional</h2>
 
-    <section>
-      <h2>💡 Habilidades</h2>
-      <ul class="skills">
-        <li>Estrategia Comercial</li>
-        <li>Análisis de Datos (Excel, Power BI)</li>
-        <li>Transformación Digital</li>
-        <li>Ecommerce</li>
-        <li>AI-assisted Coding (Python, HTML, CSS, JavaScript)</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>🌍 Idiomas</h2>
+    <div class="tarjeta" role="region" aria-label="Experiencia en The Brands Club como Jefe Ecommerce">
+      <h3>The Brands Club | Jefe Ecommerce <span>(09/2024 – 03/2025)</span> | Santiago, Chile</h3>
       <ul>
-        <li>Español - Nativo</li>
-        <li>Inglés - Intermedio</li>
+        <li>Reemplazo de Jefe de Ecommerce Canal Directo, liderando iniciativas de comercio electrónico.</li>
+        <li>Uso de inteligencia y análisis de datos para optimizar rendimiento del sitio y generación de reportes estratégicos.</li>
+        <li>Mejora de ventas y experiencia del cliente mediante decisiones basadas en datos.</li>
       </ul>
-    </section>
+    </div>
 
-    <section>
-      <h2>📄 CV Detallado</h2>
-      <button id="open-pdf" class="btn">Ver CV en PDF</button>
-      <div id="pdf-viewer" style="display:none;">
-        <button id="close-pdf" class="btn close">✕ Cerrar</button>
-        <iframe src="CV Benjamin Roman 2025.pdf" title="CV de Benjamín Román"></iframe>
+    <div class="tarjeta" role="region" aria-label="Experiencia en Falabella.com como Category Manager">
+      <h3>Falabella.com | Category Manager <span>(2022 – 2024)</span> | Santiago, Chile</h3>
+      <ul>
+        <li>Desarrollo de proyectos estratégicos en el área de Retiro en Tienda, optimizando procesos y experiencia de usuario.</li>
+        <li>Diseño y ejecución de campañas estratégicas de notificaciones push segmentadas para mobile app.</li>
+        <li>Análisis y uso de datos y tendencias para mejorar la efectividad de campañas.</li>
+      </ul>
+    </div>
+
+    <div class="tarjeta" role="region" aria-label="Experiencia en Kitchen Center como Category Manager">
+      <h3>Kitchen Center | Category Manager <span>(2021 – 2022)</span> | Santiago, Chile</h3>
+      <ul>
+        <li>Generación de reportes semanales de inventario y ventas.</li>
+        <li>Apoyo a Purchase Managers en flujo de compra-venta y toma de decisiones basadas en datos.</li>
+        <li>Liderazgo de proyecto interno de gestión de muestras, optimizando eficiencia operativa.</li>
+      </ul>
+    </div>
+
+    <div class="tarjeta" role="region" aria-label="Práctica profesional en Kiosclub American Supermarket">
+      <h3>Kiosclub American Supermarket | Práctica Profesional <span>(2020)</span> | Santiago, Chile</h3>
+      <ul>
+        <li>Gestión del sitio web mediante Prestashop y organización de datos con Excel.</li>
+        <li>Apoyo en proyectos comerciales internacionales, estableciendo contactos con proveedores en EE.UU. y Europa.</li>
+        <li>Aplicación de inteligencia comercial y análisis de datos para incrementar la oferta de productos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Educación -->
+  <section id="educacion" role="region" aria-label="Educación">
+    <h2>Educación</h2>
+    <p>
+      Ingeniería Comercial – Universidad de Chile <span>(03/2016 – 12/2020)</span><br>
+      Mención en Administración de Empresas
+    </p>
+  </section>
+
+  <!-- Habilidades -->
+  <section id="habilidades" role="region" aria-label="Herramientas y tecnologías">
+    <h2>Herramientas y Tecnologías</h2>
+    <ul>
+      <li>Excel (Experto): análisis y procesamiento de datos.</li>
+      <li>SQL (Básico-Intermedio): consultas y subconsultas.</li>
+      <li>SAP HANA (Básico): manejo de inventario y órdenes de compra.</li>
+      <li>Python / AI-assisted Coding: automatización de reportes y análisis de datos con IA.</li>
+    </ul>
+  </section>
+
+  <!-- Idiomas -->
+  <section id="idiomas" role="region" aria-label="Idiomas">
+    <h2>Idiomas</h2>
+    <ul>
+      <li>Español: Nativo</li>
+      <li>Inglés: Avanzado (oral y escrito)</li>
+    </ul>
+  </section>
+
+  <!-- CV -->
+  <section id="cv" role="region" aria-label="CV interactivo">
+    <h2>Mi CV Interactivo</h2>
+    <!-- PDF.js para mejor compatibilidad en navegadores -->
+    <iframe src="CV%20Benjamin%20Roman%202025.pdf" width="100%" height="600px" title="CV Interactivo de Benjamín Tomás Román Fernández"></iframe>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" role="region" aria-label="Contacto">
+    <h2>Contacto</h2>
+    <p>Puedes escribirme a través de este formulario o usar mis datos directos de contacto:</p>
+
+    <ul>
+      <li>Email: <a href="mailto:broman@fen.uchile.cl">broman@fen.uchile.cl</a></li>
+      <li>Teléfono: +56 9 97701521</li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank">benjamin-roman-fernandez</a></li>
+    </ul>
+
+    <h3>Formulario de contacto</h3>
+    <form id="contact-form" action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="nombre">Nombre*</label>
+        <input type="text" id="nombre" name="nombre" required>
       </div>
-    </section>
 
-    <section>
-      <h2>✉️ Contacto</h2>
-      <form id="contact-form">
-        <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Mensaje</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <div class="g-recaptcha" data-sitekey="6LcP8aAqAAAAAB6xWgIvh1-7IlRBxWy1yOHAeK3d"></div>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-    </section>
-  </main>
+      <div class="form-group">
+        <label for="apellido">Apellido*</label>
+        <input type="text" id="apellido" name="apellido" required>
+      </div>
 
-  <footer>
-    <p>&copy; 2025 Benjamín Román. Todos los derechos reservados.</p>
+      <div class="form-group">
+        <label for="email">Correo electrónico*</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="asunto">Asunto*</label>
+        <input type="text" id="asunto" name="asunto" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Mensaje*</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="archivo">Adjuntar archivo (opcional)</label>
+        <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
+      </div>
+
+      <!-- reCAPTCHA v2 -->
+      <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI"></div>
+
+      <button type="submit" class="btn-enviar">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer id="privacidad">
+    <p>Esta web no almacena datos de visitantes. Solo contiene información profesional para contacto laboral.</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="script.js"></script>
+  <script>
+    // Toggle Dark Mode + icon change
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const icon = document.getElementById('darkmode-icon');
+      icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    }
+  </script>
 </body>
 </html>
