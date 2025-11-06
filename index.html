@@ -2,14 +2,13 @@
 <html lang="es"> 
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1Y3QZ2Q7L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-V1Y3QZ2Q7L');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1Y3QZ2Q7L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V1Y3QZ2Q7L');
+  </script>
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,37 +30,25 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <!-- Google Fonts - Inter y Merriweather -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
   <!-- CSS principal -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Ajustes finos visuales -->
-  <style>
-    /* Listas justificadas sin sangría residual */
-    ul { 
-      margin-left: 0; 
-      padding-left: 0; 
-      list-style-position: inside; 
-    }
-    li { 
-      text-align: justify; 
-      margin-bottom: 4px; 
-    }
-    /* Más estilos se omiten para brevedad */
-  </style>
 </head>
 <body>
   <!-- Selector de idioma -->
-<div id="language-toggle" style="position: fixed; top: 1rem; left: 1rem; z-index:1001;">
-  <button aria-pressed="true" data-lang="es" class="lang-btn active" aria-label="Español">🇪🇸 Español</button>
-  <button aria-pressed="false" data-lang="en" class="lang-btn" aria-label="English">🇺🇸 English</button>
-</div>
+  <div id="language-toggle" style="position: fixed; top: 1rem; left: 1rem; z-index:1001;">
+    <button aria-pressed="true" data-lang="es" class="lang-btn active" aria-label="Español">🇪🇸 Español</button>
+    <button aria-pressed="false" data-lang="en" class="lang-btn" aria-label="English">🇺🇸 English</button>
+  </div>
 
   <!-- Botón Modo Oscuro -->
   <button type="button" class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar o desactivar modo oscuro" aria-pressed="false" aria-live="polite" aria-controls="main-content">
-    <span id="darkmode-icon" role="img" aria-label="Icono modo oscuro">🌙</span>
+    <span id="darkmode-icon" class="material-icons-outlined" aria-hidden="true">dark_mode</span>
   </button>
 
   <!-- Contenedor principal -->
@@ -79,7 +66,7 @@
         </h1>
         <h2>
           <span class="lang-es">Ingeniero Comercial – Universidad de Chile</span>
-          <span class="lang-en" style="display:none;">Business Administration and Economics﻿ – University of Chile</span>
+          <span class="lang-en" style="display:none;">Business Administration and Economics – University of Chile</span>
         </h2>
         <div class="bajada">
           <span class="lang-es">Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding</span>
@@ -227,7 +214,7 @@
           Mención en Administración de Empresas
         </span>
         <span class="lang-en" style="display:none;">
-           Business Administration and Economics﻿ – University of Chile <span>(03/2016 – 12/2020)</span><br>
+           Business Administration and Economics – University of Chile <span>(03/2016 – 12/2020)</span><br>
           Major in Business Administration
         </span>
       </p>
@@ -291,45 +278,36 @@
       </h3>
       <form id="contact-form" action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group">
-          <label for="nombre"><span class="lang-es">Nombre*</span><span class="lang-en" style="display:none;">First Name*</span></label>
-          <input type="text" id="nombre" name="nombre" required aria-required="true">
+          <label for="nombre"><span class="lang-es">Nombre*</span><span class="lang-en" style="display:none;">Name*</span></label>
+          <input type="text" id="nombre" name="nombre" required>
         </div>
-
         <div class="form-group">
           <label for="apellido"><span class="lang-es">Apellido*</span><span class="lang-en" style="display:none;">Last Name*</span></label>
-          <input type="text" id="apellido" name="apellido" required aria-required="true">
+          <input type="text" id="apellido" name="apellido" required>
         </div>
-
         <div class="form-group">
           <label for="email"><span class="lang-es">Correo electrónico*</span><span class="lang-en" style="display:none;">Email*</span></label>
-          <input type="email" id="email" name="email" required aria-required="true">
+          <input type="email" id="email" name="email" required>
         </div>
-
         <div class="form-group">
           <label for="asunto"><span class="lang-es">Asunto*</span><span class="lang-en" style="display:none;">Subject*</span></label>
-          <input type="text" id="asunto" name="asunto" required aria-required="true">
+          <input type="text" id="asunto" name="asunto" required>
         </div>
-
         <div class="form-group">
           <label for="mensaje"><span class="lang-es">Mensaje*</span><span class="lang-en" style="display:none;">Message*</span></label>
-          <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true"></textarea>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
         </div>
-
         <div class="form-group">
           <label for="archivo"><span class="lang-es">Adjuntar archivo (opcional)</span><span class="lang-en" style="display:none;">Attach file (optional)</span></label>
           <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
         </div>
-
-        <!-- reCAPTCHA v2 -->
-        <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI" aria-label="reCAPTCHA"></div>
-
+        <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI"></div>
         <button type="submit" class="btn-enviar">
           <span class="lang-es">Enviar</span>
           <span class="lang-en" style="display:none;">Send</span>
         </button>
       </form>
     </section>
-
   </main>
 
   <!-- Scripts -->
