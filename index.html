@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1Y3QZ2Q7L"></script>
@@ -7,333 +7,439 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-V1Y3QZ2Q7L');
   </script>
-  
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Benjamín Tomás Román Fernández - CV</title>
+  <title>Benjamín Román — Ecommerce & Digital Strategy</title>
 
-  <!-- Meta tags SEO -->
-  <meta name="description" content="Benjamín Tomás Román Fernández - Ingeniero Comercial con experiencia en Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding. CV online, experiencia laboral y contacto.">
+  <meta name="description" content="Benjamín Tomás Román Fernández - Ingeniero Comercial con experiencia en Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding.">
   <meta name="keywords" content="Benjamín Román, Ingeniería Comercial, Ecommerce, Análisis de Datos, AI, Transformación Digital, CV online">
   <meta name="author" content="Benjamín Tomás Román Fernández">
+  <meta name="robots" content="index, follow">
 
-  <!-- SEO social -->
-  <meta property="og:title" content="Benjamín Tomás Román Fernández - CV Online">
+  <meta property="og:title" content="Benjamín Román — Ecommerce & Digital Strategy">
   <meta property="og:description" content="Ingeniero Comercial con experiencia en Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="foto_benjamin.jpg">
-  <meta property="og:url" content="https://tuweb.com/">
+  <meta property="og:url" content="https://benjaminroman.cl/">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <!-- Google Fonts - Inter y Merriweather -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <!-- Fonts: Syne (display) + DM Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- CSS principal -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Ajustes finos visuales -->
-  <style>
-    /* Listas justificadas sin sangría residual */
-    ul { 
-      margin-left: 0; 
-      padding-left: 0; 
-      list-style-position: inside; 
-    }
-    li { 
-      text-align: justify; 
-      margin-bottom: 4px; 
-    }
-    /* Más estilos se omiten para brevedad */
-  </style>
 </head>
 <body>
-  <!-- Selector de idioma -->
-  <div id="language-toggle" style="position: fixed; top: 1rem; left: 1rem; z-index:1001;">
-    <button aria-pressed="true" data-lang="es" class="lang-btn active" aria-label="Español">🇪🇸 Español</button>
-    <button aria-pressed="false" data-lang="en" class="lang-btn" aria-label="English">🇺🇸 English</button>
+
+  <!-- ====== TOPBAR ====== -->
+  <div class="topbar" role="banner">
+    <div id="language-toggle" aria-label="Selector de idioma">
+      <button aria-pressed="true" data-lang="es" class="lang-btn active" aria-label="Español">🇪🇸 ES</button>
+      <button aria-pressed="false" data-lang="en" class="lang-btn" aria-label="English">🇺🇸 EN</button>
+    </div>
+
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="#perfil" class="nav-link"><span class="lang-es">Perfil</span><span class="lang-en" style="display:none">Profile</span></a>
+      <a href="#experiencia" class="nav-link"><span class="lang-es">Experiencia</span><span class="lang-en" style="display:none">Experience</span></a>
+      <a href="#habilidades" class="nav-link"><span class="lang-es">Skills</span><span class="lang-en" style="display:none">Skills</span></a>
+      <a href="#contacto" class="nav-link"><span class="lang-es">Contacto</span><span class="lang-en" style="display:none">Contact</span></a>
+    </nav>
+
+    <button type="button" class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar modo oscuro" aria-pressed="false">
+      <span id="darkmode-icon" role="img" aria-label="Icono modo">🌙</span>
+    </button>
   </div>
 
-  <!-- Botón Modo Oscuro -->
-  <button type="button" class="toggle-darkmode" onclick="toggleDarkMode()" aria-label="Activar o desactivar modo oscuro" aria-pressed="false" aria-live="polite" aria-controls="main-content">
-    <span id="darkmode-icon" role="img" aria-label="Icono modo oscuro">🌙</span>
-  </button>
-
-  <!-- Contenedor principal -->
+  <!-- ====== MAIN ====== -->
   <main id="main-content" tabindex="-1">
 
-    <!-- Portada -->
-    <header class="hero" aria-label="Portada con foto y datos principales">
-      <div class="hero-foto">
-        <img src="foto_benjamin.jpg" alt="Foto profesional de Benjamín Tomás Román Fernández">
-      </div>
-      <div class="hero-info">
-        <h1>
-          <span class="lang-es">Benjamín Tomás Román Fernández</span>
-          <span class="lang-en" style="display:none;">Benjamin Tomas Roman Fernandez</span>
-        </h1>
-        <h2>
-          <span class="lang-es">Ingeniero Comercial – Universidad de Chile</span>
-          <span class="lang-en" style="display:none;">Business Administration and Economics﻿ – University of Chile</span>
-        </h2>
-        <div class="bajada">
-          <span class="lang-es">Estrategia Comercial, Análisis de Datos, Ecommerce y AI-assisted Coding</span>
-          <span class="lang-en" style="display:none;">Commercial Strategy, Data Analysis, Ecommerce, and AI-assisted Coding</span>
+    <!-- HERO -->
+    <header class="hero" aria-label="Portada">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="hero-bg-dots" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-foto-wrap">
+          <div class="hero-foto">
+            <img src="foto_benjamin.jpg" alt="Foto profesional de Benjamín Román" loading="eager">
+          </div>
+          <div class="hero-foto-ring" aria-hidden="true"></div>
         </div>
-        <nav aria-label="Enlaces importantes de navegación">
-          <ul class="botones">
-            <li>
-              <a href="CV%20Benjamin%20Roman%202025.pdf" target="_blank" class="btn" aria-label="Descargar CV de Benjamín Román">
-                <span class="lang-es">Descargar CV</span><span class="lang-en" style="display:none;">Download CV</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" class="btn" aria-label="Perfil LinkedIn de Benjamín Román">
-                <span class="lang-es">LinkedIn</span><span class="lang-en" style="display:none;">LinkedIn</span>
-              </a>
-            </li>
-            <li>
-              <a href="#contacto" class="btn" aria-label="Ir a sección de contacto de Benjamín Román">
-                <span class="lang-es">Contacto</span><span class="lang-en" style="display:none;">Contact</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+
+        <div class="hero-info">
+          <div class="hero-tag" aria-hidden="true">
+            <span class="tag-dot"></span>
+            <span class="lang-es">Disponible para nuevas oportunidades</span>
+            <span class="lang-en" style="display:none">Open to new opportunities</span>
+          </div>
+
+          <h1>
+            <span class="lang-es">Benjamín<br><em>Román</em></span>
+            <span class="lang-en" style="display:none">Benjamin<br><em>Román</em></span>
+          </h1>
+
+          <p class="hero-rol">
+            <span class="lang-es">Ingeniero Comercial · Ecommerce · Data & AI</span>
+            <span class="lang-en" style="display:none">Business Engineer · Ecommerce · Data & AI</span>
+          </p>
+
+          <p class="hero-sub">
+            <span class="lang-es">Universidad de Chile — Estrategia digital, análisis de datos y AI-assisted coding para impulsar resultados comerciales reales.</span>
+            <span class="lang-en" style="display:none">University of Chile — Digital strategy, data analytics, and AI-assisted coding to drive real commercial results.</span>
+          </p>
+
+          <div class="hero-actions">
+            <a href="CV%20Benjamin%20Roman%202025.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span class="lang-es">Descargar CV</span><span class="lang-en" style="display:none">Download CV</span>
+            </a>
+            <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="#contacto" class="btn btn-ghost">
+              <span class="lang-es">Contacto</span><span class="lang-en" style="display:none">Contact</span>
+            </a>
+          </div>
+
+          <div class="hero-stats" aria-label="Estadísticas rápidas">
+            <div class="stat">
+              <span class="stat-num">4+</span>
+              <span class="stat-label"><span class="lang-es">años exp.</span><span class="lang-en" style="display:none">yrs exp.</span></span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num">3</span>
+              <span class="stat-label"><span class="lang-es">empresas</span><span class="lang-en" style="display:none">companies</span></span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num">UCH</span>
+              <span class="stat-label"><span class="lang-es">titulado</span><span class="lang-en" style="display:none">graduate</span></span>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
-    <!-- Perfil -->
-    <section id="perfil" aria-labelledby="perfil-title">
+    <!-- PERFIL -->
+    <section id="perfil" aria-labelledby="perfil-title" class="section-reveal">
+      <div class="section-label" aria-hidden="true">01</div>
       <h2 id="perfil-title">
         <span class="lang-es">Perfil Profesional</span>
-        <span class="lang-en" style="display:none;">Professional Profile</span>
+        <span class="lang-en" style="display:none">Professional Profile</span>
       </h2>
       <p>
-        <span class="lang-es">
-          Ingeniero Comercial de la Universidad de Chile, con experiencia liderando proyectos de Ecommerce, gestión de operaciones y análisis de datos en grandes empresas como Falabella.com, Kitchen Center y The Brands Club. Apasionado por la transformación digital y la optimización de procesos mediante Inteligencia Artificial, utilizando herramientas de AI-assisted coding (Vibe Coding) y automatización de reportes para potenciar análisis, resultados comerciales y eficiencia operativa.
-        </span>
-        <span class="lang-en" style="display:none;">
-          Business Administration and Economics﻿ from the University of Chile, with proven experience leading Ecommerce projects, operations management, and data analysis in major firms such as Falabella.com, Kitchen Center, and The Brands Club. Passionate about digital transformation and process optimization using Artificial Intelligence tools, including AI-assisted coding (Vibe Coding) and report automation to enhance analytics, commercial outcomes, and operational efficiency.
-        </span>
+        <span class="lang-es">Ingeniero Comercial de la Universidad de Chile, con experiencia liderando proyectos de Ecommerce, gestión de operaciones y análisis de datos en grandes empresas como Falabella.com, Kitchen Center y The Brands Club. Apasionado por la transformación digital y la optimización de procesos mediante Inteligencia Artificial, utilizando herramientas de AI-assisted coding (Vibe Coding) y automatización de reportes para potenciar análisis, resultados comerciales y eficiencia operativa.</span>
+        <span class="lang-en" style="display:none">Business Administration and Economics graduate from the University of Chile, with proven experience leading Ecommerce projects, operations management, and data analysis in major firms such as Falabella.com, Kitchen Center, and The Brands Club. Passionate about digital transformation and process optimization using Artificial Intelligence tools, including AI-assisted coding (Vibe Coding) and report automation to enhance analytics, commercial outcomes, and operational efficiency.</span>
       </p>
     </section>
 
-    <!-- Experiencia -->
-    <section id="experiencia" aria-labelledby="experiencia-title">
+    <!-- EXPERIENCIA -->
+    <section id="experiencia" aria-labelledby="experiencia-title" class="section-reveal">
+      <div class="section-label" aria-hidden="true">02</div>
       <h2 id="experiencia-title">
         <span class="lang-es">Experiencia Profesional</span>
-        <span class="lang-en" style="display:none;">Professional Experience</span>
+        <span class="lang-en" style="display:none">Professional Experience</span>
       </h2>
 
-      <article class="tarjeta" aria-labelledby="experiencia-brandsclub">
-        <h3 id="experiencia-brandsclub">
-          <span class="lang-es">The Brands Club | Jefe Ecommerce <span>(09/2024 – 03/2025)</span> | Santiago, Chile</span>
-          <span class="lang-en" style="display:none;">The Brands Club | Ecommerce Manager <span>(09/2024 – 03/2025)</span> | Santiago, Chile</span>
-        </h3>
-        <ul>
-          <li>
-            <span class="lang-es">Reemplazo de Jefe de Ecommerce Canal Directo, liderando iniciativas de comercio electrónico.</span>
-            <span class="lang-en" style="display:none;">Acted as interim Head of Direct Channel Ecommerce, leading e-commerce initiatives.</span>
-          </li>
-          <li>
-            <span class="lang-es">Uso de inteligencia y análisis de datos para optimizar rendimiento del sitio y generación de reportes estratégicos.</span>
-            <span class="lang-en" style="display:none;">Utilized intelligence and data analytics to optimize site performance and generate strategic reports.</span>
-          </li>
-          <li>
-            <span class="lang-es">Mejora de ventas y experiencia del cliente mediante decisiones basadas en datos.</span>
-            <span class="lang-en" style="display:none;">Improved sales and customer experience through data-driven decision-making.</span>
-          </li>
-        </ul>
-      </article>
+      <div class="timeline">
 
-      <article class="tarjeta" aria-labelledby="experiencia-falabella">
-        <h3 id="experiencia-falabella">
-          <span class="lang-es">Falabella.com | Category Manager <span>(2022 – 2024)</span> | Santiago, Chile</span>
-          <span class="lang-en" style="display:none;">Falabella.com | Category Manager <span>(2022 – 2024)</span> | Santiago, Chile</span>
-        </h3>
-        <ul>
-          <li>
-            <span class="lang-es">Desarrollo de proyectos estratégicos en el área de Retiro en Tienda, optimizando procesos y experiencia de usuario.</span>
-            <span class="lang-en" style="display:none;">Led strategic projects in Store Pickup operations, optimizing processes and user experience.</span>
-          </li>
-          <li>
-            <span class="lang-es">Diseño y ejecución de campañas estratégicas de notificaciones push segmentadas para mobile app.</span>
-            <span class="lang-en" style="display:none;">Designed and executed targeted push notification campaigns for the mobile app.</span>
-          </li>
-          <li>
-            <span class="lang-es">Análisis y uso de datos y tendencias para mejorar la efectividad de campañas.</span>
-            <span class="lang-en" style="display:none;">Analyzed data and trends to enhance campaign effectiveness.</span>
-          </li>
-        </ul>
-      </article>
+        <article class="timeline-item" aria-labelledby="exp-brandsclub">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content tarjeta">
+            <div class="tarjeta-header">
+              <div>
+                <h3 id="exp-brandsclub">
+                  <span class="lang-es">Jefe Ecommerce</span>
+                  <span class="lang-en" style="display:none">Ecommerce Manager</span>
+                </h3>
+                <span class="company-name">The Brands Club</span>
+              </div>
+              <span class="tarjeta-fecha">
+                <span class="lang-es">09/2024 – 03/2025</span>
+                <span class="lang-en" style="display:none">09/2024 – 03/2025</span>
+              </span>
+            </div>
+            <ul>
+              <li><span class="lang-es">Reemplazo de Jefe de Ecommerce Canal Directo, liderando iniciativas de comercio electrónico.</span><span class="lang-en" style="display:none">Acted as interim Head of Direct Channel Ecommerce, leading e-commerce initiatives.</span></li>
+              <li><span class="lang-es">Uso de inteligencia y análisis de datos para optimizar rendimiento del sitio y generación de reportes estratégicos.</span><span class="lang-en" style="display:none">Utilized intelligence and data analytics to optimize site performance and generate strategic reports.</span></li>
+              <li><span class="lang-es">Mejora de ventas y experiencia del cliente mediante decisiones basadas en datos.</span><span class="lang-en" style="display:none">Improved sales and customer experience through data-driven decision-making.</span></li>
+            </ul>
+          </div>
+        </article>
 
-      <article class="tarjeta" aria-labelledby="experiencia-kitchencenter">
-        <h3 id="experiencia-kitchencenter">
-          <span class="lang-es">Kitchen Center | Category Manager <span>(2021 – 2022)</span> | Santiago, Chile</span>
-          <span class="lang-en" style="display:none;">Kitchen Center | Category Manager <span>(2021 – 2022)</span> | Santiago, Chile</span>
-        </h3>
-        <ul>
-          <li>
-            <span class="lang-es">Generación de reportes semanales de inventario y ventas.</span>
-            <span class="lang-en" style="display:none;">Generated weekly inventory and sales reports.</span>
-          </li>
-          <li>
-            <span class="lang-es">Apoyo a Purchase Managers en flujo de compra-venta y toma de decisiones basadas en datos.</span>
-            <span class="lang-en" style="display:none;">Supported Purchase Managers in the procurement-sales workflow and data-based decision making.</span>
-          </li>
-          <li>
-            <span class="lang-es">Liderazgo de proyecto interno de gestión de muestras, optimizando eficiencia operativa.</span>
-            <span class="lang-en" style="display:none;">Led internal sample management project, enhancing operational efficiency.</span>
-          </li>
-        </ul>
-      </article>
+        <article class="timeline-item" aria-labelledby="exp-falabella">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content tarjeta">
+            <div class="tarjeta-header">
+              <div>
+                <h3 id="exp-falabella">
+                  <span class="lang-es">Category Manager</span>
+                  <span class="lang-en" style="display:none">Category Manager</span>
+                </h3>
+                <span class="company-name">Falabella.com</span>
+              </div>
+              <span class="tarjeta-fecha">2022 – 2024</span>
+            </div>
+            <ul>
+              <li><span class="lang-es">Desarrollo de proyectos estratégicos en el área de Retiro en Tienda, optimizando procesos y experiencia de usuario.</span><span class="lang-en" style="display:none">Led strategic projects in Store Pickup operations, optimizing processes and user experience.</span></li>
+              <li><span class="lang-es">Diseño y ejecución de campañas estratégicas de notificaciones push segmentadas para mobile app.</span><span class="lang-en" style="display:none">Designed and executed targeted push notification campaigns for the mobile app.</span></li>
+              <li><span class="lang-es">Análisis y uso de datos y tendencias para mejorar la efectividad de campañas.</span><span class="lang-en" style="display:none">Analyzed data and trends to enhance campaign effectiveness.</span></li>
+            </ul>
+          </div>
+        </article>
 
-      <article class="tarjeta" aria-labelledby="experiencia-kiosclub">
-        <h3 id="experiencia-kiosclub">
-          <span class="lang-es">Kiosclub American Supermarket | Práctica Profesional <span>(2020)</span> | Santiago, Chile</span>
-          <span class="lang-en" style="display:none;">Kiosclub American Supermarket | Internship <span>(2020)</span> | Santiago, Chile</span>
-        </h3>
-        <ul>
-          <li>
-            <span class="lang-es">Gestión del sitio web mediante Prestashop y organización de datos con Excel.</span>
-            <span class="lang-en" style="display:none;">Website management using Prestashop and data organization with Excel.</span>
-          </li>
-          <li>
-            <span class="lang-es">Apoyo en proyectos comerciales internacionales, estableciendo contactos con proveedores en EE.UU. y Europa.</span>
-            <span class="lang-en" style="display:none;">Supported international commercial projects, establishing contacts with suppliers in the U.S. and Europe.</span>
-          </li>
-          <li>
-            <span class="lang-es">Aplicación de inteligencia comercial y análisis de datos para incrementar la oferta de productos.</span>
-            <span class="lang-en" style="display:none;">Applied business intelligence and data analysis to increase product offerings.</span>
-          </li>
-        </ul>
-      </article>
+        <article class="timeline-item" aria-labelledby="exp-kitchen">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content tarjeta">
+            <div class="tarjeta-header">
+              <div>
+                <h3 id="exp-kitchen">Category Manager</h3>
+                <span class="company-name">Kitchen Center</span>
+              </div>
+              <span class="tarjeta-fecha">2021 – 2022</span>
+            </div>
+            <ul>
+              <li><span class="lang-es">Generación de reportes semanales de inventario y ventas.</span><span class="lang-en" style="display:none">Generated weekly inventory and sales reports.</span></li>
+              <li><span class="lang-es">Apoyo a Purchase Managers en flujo de compra-venta y toma de decisiones basadas en datos.</span><span class="lang-en" style="display:none">Supported Purchase Managers in the procurement-sales workflow and data-based decision making.</span></li>
+              <li><span class="lang-es">Liderazgo de proyecto interno de gestión de muestras, optimizando eficiencia operativa.</span><span class="lang-en" style="display:none">Led internal sample management project, enhancing operational efficiency.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item" aria-labelledby="exp-kiosclub">
+          <div class="timeline-dot timeline-dot--sm" aria-hidden="true"></div>
+          <div class="timeline-content tarjeta">
+            <div class="tarjeta-header">
+              <div>
+                <h3 id="exp-kiosclub">
+                  <span class="lang-es">Práctica Profesional</span>
+                  <span class="lang-en" style="display:none">Internship</span>
+                </h3>
+                <span class="company-name">Kiosclub American Supermarket</span>
+              </div>
+              <span class="tarjeta-fecha">2020</span>
+            </div>
+            <ul>
+              <li><span class="lang-es">Gestión del sitio web mediante Prestashop y organización de datos con Excel.</span><span class="lang-en" style="display:none">Website management using Prestashop and data organization with Excel.</span></li>
+              <li><span class="lang-es">Apoyo en proyectos comerciales internacionales, estableciendo contactos con proveedores en EE.UU. y Europa.</span><span class="lang-en" style="display:none">Supported international commercial projects, establishing contacts with suppliers in the U.S. and Europe.</span></li>
+              <li><span class="lang-es">Aplicación de inteligencia comercial y análisis de datos para incrementar la oferta de productos.</span><span class="lang-en" style="display:none">Applied business intelligence and data analysis to increase product offerings.</span></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
     </section>
 
-    <!-- Educación -->
-    <section id="educacion" aria-labelledby="educacion-title">
+    <!-- EDUCACIÓN -->
+    <section id="educacion" aria-labelledby="educacion-title" class="section-reveal">
+      <div class="section-label" aria-hidden="true">03</div>
       <h2 id="educacion-title">
         <span class="lang-es">Educación</span>
-        <span class="lang-en" style="display:none;">Education</span>
+        <span class="lang-en" style="display:none">Education</span>
       </h2>
-      <p>
-        <span class="lang-es">
-          Ingeniería Comercial – Universidad de Chile <span>(03/2016 – 12/2020)</span><br>
-          Mención en Administración de Empresas
-        </span>
-        <span class="lang-en" style="display:none;">
-           Business Administration and Economics﻿ – University of Chile <span>(03/2016 – 12/2020)</span><br>
-          Major in Business Administration
-        </span>
-      </p>
+      <div class="edu-card tarjeta">
+        <div class="edu-icon" aria-hidden="true">🎓</div>
+        <div>
+          <h3>
+            <span class="lang-es">Ingeniería Comercial</span>
+            <span class="lang-en" style="display:none">Business Administration and Economics</span>
+          </h3>
+          <span class="company-name">Universidad de Chile</span>
+          <p class="edu-detail">
+            <span class="lang-es">Mención en Administración de Empresas · 2016 – 2020</span>
+            <span class="lang-en" style="display:none">Major in Business Administration · 2016 – 2020</span>
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- Habilidades -->
-    <section id="habilidades" aria-labelledby="habilidades-title">
+    <!-- HABILIDADES -->
+    <section id="habilidades" aria-labelledby="habilidades-title" class="section-reveal">
+      <div class="section-label" aria-hidden="true">04</div>
       <h2 id="habilidades-title">
-        <span class="lang-es">Herramientas y Tecnologías</span>
-        <span class="lang-en" style="display:none;">Tools and Technologies</span>
+        <span class="lang-es">Herramientas & Skills</span>
+        <span class="lang-en" style="display:none">Tools & Skills</span>
       </h2>
-      <ul>
-        <li><span class="lang-es">Excel (Experto): análisis y procesamiento de datos.</span><span class="lang-en" style="display:none;">Excel (Expert): data analysis and processing.</span></li>
-        <li><span class="lang-es">SQL (Básico-Intermedio): consultas y subconsultas.</span><span class="lang-en" style="display:none;">SQL (Basic-Intermediate): queries and subqueries.</span></li>
-        <li><span class="lang-es">SAP HANA (Básico): manejo de inventario y órdenes de compra.</span><span class="lang-en" style="display:none;">SAP HANA (Basic): inventory and purchase order management.</span></li>
-        <li><span class="lang-es">Python / AI-assisted Coding: automatización de reportes y análisis de datos con IA.</span><span class="lang-en" style="display:none;">Python / AI-assisted Coding: report automation and data analysis with AI.</span></li>
-      </ul>
-    </section>
 
-    <!-- Idiomas -->
-    <section id="idiomas" aria-labelledby="idiomas-title">
-      <h2 id="idiomas-title">
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon" aria-hidden="true">📊</div>
+          <div class="skill-info">
+            <span class="skill-name">Excel</span>
+            <span class="skill-level">
+              <span class="lang-es">Experto</span>
+              <span class="lang-en" style="display:none">Expert</span>
+            </span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--pct: 95%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon" aria-hidden="true">🗄️</div>
+          <div class="skill-info">
+            <span class="skill-name">SQL</span>
+            <span class="skill-level">
+              <span class="lang-es">Básico-Intermedio</span>
+              <span class="lang-en" style="display:none">Basic-Intermediate</span>
+            </span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--pct: 55%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon" aria-hidden="true">🧩</div>
+          <div class="skill-info">
+            <span class="skill-name">SAP HANA</span>
+            <span class="skill-level">
+              <span class="lang-es">Básico</span>
+              <span class="lang-en" style="display:none">Basic</span>
+            </span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--pct: 35%"></div></div>
+        </div>
+
+        <div class="skill-card skill-card--highlight">
+          <div class="skill-icon" aria-hidden="true">🤖</div>
+          <div class="skill-info">
+            <span class="skill-name">Python & AI Coding</span>
+            <span class="skill-level">
+              <span class="lang-es">Vibe Coding · Automatización</span>
+              <span class="lang-en" style="display:none">Vibe Coding · Automation</span>
+            </span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--pct: 70%"></div></div>
+        </div>
+      </div>
+
+      <!-- Idiomas -->
+      <h3 class="subsection-title">
         <span class="lang-es">Idiomas</span>
-        <span class="lang-en" style="display:none;">Languages</span>
-      </h2>
-      <ul>
-        <li><span class="lang-es">Español: Nativo</span><span class="lang-en" style="display:none;">Spanish: Native</span></li>
-        <li><span class="lang-es">Inglés: Avanzado (oral y escrito)</span><span class="lang-en" style="display:none;">English: Advanced (speaking and writing)</span></li>
-      </ul>
+        <span class="lang-en" style="display:none">Languages</span>
+      </h3>
+      <div class="lang-cards">
+        <div class="lang-card">
+          <span class="lang-flag">🇨🇱</span>
+          <div>
+            <span class="lang-card-name"><span class="lang-es">Español</span><span class="lang-en" style="display:none">Spanish</span></span>
+            <span class="lang-card-level"><span class="lang-es">Nativo</span><span class="lang-en" style="display:none">Native</span></span>
+          </div>
+        </div>
+        <div class="lang-card">
+          <span class="lang-flag">🇺🇸</span>
+          <div>
+            <span class="lang-card-name"><span class="lang-es">Inglés</span><span class="lang-en" style="display:none">English</span></span>
+            <span class="lang-card-level"><span class="lang-es">Avanzado</span><span class="lang-en" style="display:none">Advanced</span></span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- CV -->
-    <section id="cv" aria-labelledby="cv-title">
+    <!-- CV INTERACTIVO -->
+    <section id="cv" aria-labelledby="cv-title" class="section-reveal">
+      <div class="section-label" aria-hidden="true">05</div>
       <h2 id="cv-title">
-        <span class="lang-es">Mi CV Interactivo</span>
-        <span class="lang-en" style="display:none;">My Interactive CV</span>
+        <span class="lang-es">CV Interactivo</span>
+        <span class="lang-en" style="display:none">Interactive CV</span>
       </h2>
-      <iframe src="CV%20Benjamin%20Roman%202025.pdf" width="100" height="600" title="CV Interactivo de Benjamín Tomás Román Fernández"></iframe>
+      <div class="cv-actions">
+        <a href="CV%20Benjamin%20Roman%202025.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="lang-es">Descargar PDF</span><span class="lang-en" style="display:none">Download PDF</span>
+        </a>
+      </div>
+      <iframe src="CV%20Benjamin%20Roman%202025.pdf" width="100%" height="650" title="CV Interactivo de Benjamín Román" loading="lazy"></iframe>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" aria-labelledby="contacto-title">
+    <!-- CONTACTO -->
+    <section id="contacto" aria-labelledby="contacto-title" class="section-reveal">
+      <div class="section-label" aria-hidden="true">06</div>
       <h2 id="contacto-title">
         <span class="lang-es">Contacto</span>
-        <span class="lang-en" style="display:none;">Contact</span>
+        <span class="lang-en" style="display:none">Contact</span>
       </h2>
-      <p>
-        <span class="lang-es">Puedes escribirme a través de este formulario o usar mis datos directos de contacto:</span>
-        <span class="lang-en" style="display:none;">You can reach me through this form or use my direct contact details:</span>
-      </p>
 
-      <ul>
-        <li><span class="lang-es">Email:</span><span class="lang-en" style="display:none;">Email:</span> <a href="mailto:broman@fen.uchile.cl">broman@fen.uchile.cl</a></li>
-        <li><span class="lang-es">Teléfono:</span><span class="lang-en" style="display:none;">Phone:</span> +56 9 97701521</li>
-        <li><span class="lang-es">LinkedIn:</span><span class="lang-en" style="display:none;">LinkedIn:</span> <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" rel="noopener">benjamin-roman-fernandez</a></li>
-      </ul>
-
-      <h3>
-        <span class="lang-es">Formulario de contacto</span>
-        <span class="lang-en" style="display:none;">Contact Form</span>
-      </h3>
-      <form id="contact-form" action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data" novalidate>
-        <div class="form-group">
-          <label for="nombre"><span class="lang-es">Nombre*</span><span class="lang-en" style="display:none;">First Name*</span></label>
-          <input type="text" id="nombre" name="nombre" required aria-required="true">
+      <div class="contacto-grid">
+        <div class="contacto-info">
+          <p><span class="lang-es">¿Tienes un proyecto o una oportunidad? Escríbeme directamente o usa el formulario.</span><span class="lang-en" style="display:none">Have a project or opportunity in mind? Write me directly or use the form.</span></p>
+          <ul class="contacto-list">
+            <li>
+              <span class="contacto-icon" aria-hidden="true">✉️</span>
+              <a href="mailto:broman@fen.uchile.cl">broman@fen.uchile.cl</a>
+            </li>
+            <li>
+              <span class="contacto-icon" aria-hidden="true">📱</span>
+              <a href="tel:+56997701521">+56 9 97701521</a>
+            </li>
+            <li>
+              <span class="contacto-icon" aria-hidden="true">💼</span>
+              <a href="https://www.linkedin.com/in/benjamin-roman-fernandez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </li>
+          </ul>
         </div>
 
-        <div class="form-group">
-          <label for="apellido"><span class="lang-es">Apellido*</span><span class="lang-en" style="display:none;">Last Name*</span></label>
-          <input type="text" id="apellido" name="apellido" required aria-required="true">
-        </div>
+        <form id="contact-form" action="https://getform.io/f/bqoeyrzb" method="POST" enctype="multipart/form-data" novalidate>
+          <div id="form-message" class="form-message" role="alert" aria-live="polite" style="display:none"></div>
 
-        <div class="form-group">
-          <label for="email"><span class="lang-es">Correo electrónico*</span><span class="lang-en" style="display:none;">Email*</span></label>
-          <input type="email" id="email" name="email" required aria-required="true">
-        </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre"><span class="lang-es">Nombre*</span><span class="lang-en" style="display:none">First Name*</span></label>
+              <input type="text" id="nombre" name="nombre" required aria-required="true" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="apellido"><span class="lang-es">Apellido*</span><span class="lang-en" style="display:none">Last Name*</span></label>
+              <input type="text" id="apellido" name="apellido" required aria-required="true" autocomplete="family-name">
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label for="asunto"><span class="lang-es">Asunto*</span><span class="lang-en" style="display:none;">Subject*</span></label>
-          <input type="text" id="asunto" name="asunto" required aria-required="true">
-        </div>
+          <div class="form-group">
+            <label for="email"><span class="lang-es">Correo electrónico*</span><span class="lang-en" style="display:none">Email*</span></label>
+            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+          </div>
 
-        <div class="form-group">
-          <label for="mensaje"><span class="lang-es">Mensaje*</span><span class="lang-en" style="display:none;">Message*</span></label>
-          <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true"></textarea>
-        </div>
+          <div class="form-group">
+            <label for="asunto"><span class="lang-es">Asunto*</span><span class="lang-en" style="display:none">Subject*</span></label>
+            <input type="text" id="asunto" name="asunto" required aria-required="true">
+          </div>
 
-        <div class="form-group">
-          <label for="archivo"><span class="lang-es">Adjuntar archivo (opcional)</span><span class="lang-en" style="display:none;">Attach file (optional)</span></label>
-          <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
-        </div>
+          <div class="form-group">
+            <label for="mensaje"><span class="lang-es">Mensaje*</span><span class="lang-en" style="display:none">Message*</span></label>
+            <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true"></textarea>
+          </div>
 
-        <!-- reCAPTCHA v2 -->
-        <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI" aria-label="reCAPTCHA"></div>
+          <div class="form-group">
+            <label for="archivo"><span class="lang-es">Adjuntar archivo (opcional)</span><span class="lang-en" style="display:none">Attach file (optional)</span></label>
+            <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
+          </div>
 
-        <button type="submit" class="btn-enviar">
-          <span class="lang-es">Enviar</span>
-          <span class="lang-en" style="display:none;">Send</span>
-        </button>
-      </form>
+          <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI" aria-label="reCAPTCHA"></div>
+
+          <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+            <span class="lang-es">Enviar mensaje</span>
+            <span class="lang-en" style="display:none">Send message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
     </section>
 
   </main>
 
-  <!-- Scripts -->
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <p>
+      <span class="lang-es">Diseñado y desarrollado con AI-assisted coding</span>
+      <span class="lang-en" style="display:none">Designed and built with AI-assisted coding</span>
+      · © <span id="footer-year"></span> Benjamín Román
+    </p>
+  </footer>
+
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
