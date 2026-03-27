@@ -383,7 +383,7 @@ body.nav-open .nav-backdrop {
     linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
   background-size: 48px 48px;
-  animation: gridMove 20s linear infinite;
+  animation: gridMove 55s linear infinite;
 }
 
 @keyframes gridMove {
@@ -445,7 +445,7 @@ body.nav-open .nav-backdrop {
   inset: -12px;
   border-radius: 26px;
   border: 2px dashed rgba(240,180,41,0.3);
-  animation: ringRotate 18s linear infinite;
+  animation: ringRotate 52s linear infinite;
   pointer-events: none;
 }
 
@@ -486,12 +486,12 @@ body.nav-open .nav-backdrop {
   height: 7px;
   border-radius: 50%;
   background: var(--gold);
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse 4.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
+  50% { opacity: 0.55; transform: scale(0.88); }
 }
 
 .hero-info h1 {
@@ -756,7 +756,8 @@ section p {
 .timeline-dot {
   position: absolute;
   left: -24px;
-  top: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -767,13 +768,15 @@ section p {
   z-index: 1;
 }
 
+/* Mismo acento dorado; ligeramente más pequeño para el último hito */
 .timeline-dot--sm {
   width: 12px;
   height: 12px;
   left: -22px;
-  top: 22px;
-  background: var(--gray-200);
-  box-shadow: 0 0 0 2px var(--gray-400);
+  transform: translateY(-50%);
+  border-width: 2px;
+  background: var(--gold);
+  box-shadow: 0 0 0 2px var(--gold);
 }
 
 /* ===========================
