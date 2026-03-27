@@ -445,7 +445,7 @@ body.nav-open .nav-backdrop {
   inset: -12px;
   border-radius: 26px;
   border: 2px dashed rgba(240,180,41,0.3);
-  animation: ringRotate 52s linear infinite;
+  animation: ringRotate 240s linear infinite;
   pointer-events: none;
 }
 
@@ -464,34 +464,6 @@ body.nav-open .nav-backdrop {
 
 @keyframes heroIn {
   to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(240,180,41,0.12);
-  border: 1px solid rgba(240,180,41,0.35);
-  color: var(--gold);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  letter-spacing: 0.02em;
-}
-
-.tag-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--gold);
-  animation: pulse 4.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.55; transform: scale(0.88); }
 }
 
 .hero-info h1 {
@@ -1237,7 +1209,6 @@ html.dark-mode .form-message.error {
   .hero-foto { width: 160px; height: 200px; }
   section { padding: 36px 20px; }
   .skills-grid { grid-template-columns: 1fr; }
-  .hero-tag { font-size: 0.72rem; }
   h2 { font-size: 1.4rem; }
 
   #language-toggle .lang-btn {
