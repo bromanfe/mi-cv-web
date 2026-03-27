@@ -1,126 +1,202 @@
 // ============================
-// 🌙 MODO OSCURO / CLARO
+// MODO OSCURO / CLARO (clase en <html> + anti-FOUC vía inline en HTML)
 // ============================
 
-// Aplica preferencia almacenada o del sistema al cargar
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-const storedTheme = localStorage.getItem("theme");
+const root = document.documentElement;
 
-if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
-  document.body.classList.add("dark-mode");
-}
-
-// Sincroniza ícono al cargar
 function syncDarkmodeIcon() {
   const icon = document.getElementById("darkmode-icon");
-  const btn = document.querySelector(".toggle-darkmode");
-  const isDark = document.body.classList.contains("dark-mode");
+  const btn = document.getElementById("toggle-darkmode");
+  const isDark = root.classList.contains("dark-mode");
   if (icon) icon.textContent = isDark ? "☀️" : "🌙";
-  if (btn) btn.setAttribute("aria-pressed", isDark ? "true" : "false");
+  if (btn) {
+    btn.setAttribute("aria-pressed", isDark ? "true" : "false");
+    const lang = localStorage.getItem("selectedLanguage") || "es";
+    const on = lang === "es" ? "Activar modo claro" : "Switch to light mode";
+    const off = lang === "es" ? "Activar modo oscuro" : "Switch to dark mode";
+    btn.setAttribute("aria-label", isDark ? on : off);
+  }
+}
+
+function toggleDarkMode() {
+  root.classList.toggle("dark-mode");
+  localStorage.setItem("theme", root.classList.contains("dark-mode") ? "dark" : "light");
+  syncDarkmodeIcon();
+}
+
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const storedTheme = localStorage.getItem("theme");
+if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+  root.classList.add("dark-mode");
+} else {
+  root.classList.remove("dark-mode");
 }
 
 syncDarkmodeIcon();
 
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-  const isDark = document.body.classList.contains("dark-mode");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-  syncDarkmodeIcon();
-}
-
 // ============================
-// 🌐 CAMBIO DE IDIOMA
+// IDIOMA (data-lang en <html>)
 // ============================
 
-const langButtons = document.querySelectorAll('.lang-btn');
+const langButtons = document.querySelectorAll(".lang-btn");
 
 function applyLanguage(lang) {
-  document.documentElement.lang = lang;
+  root.lang = lang;
+  root.setAttribute("data-lang", lang);
 
-  document.querySelectorAll('.lang-es').forEach(el => {
-    el.style.display = lang === 'es' ? '' : 'none';
-  });
-  document.querySelectorAll('.lang-en').forEach(el => {
-    el.style.display = lang === 'en' ? '' : 'none';
-  });
-
-  langButtons.forEach(btn => {
-    const isActive = btn.getAttribute('data-lang') === lang;
-    btn.classList.toggle('active', isActive);
-    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  langButtons.forEach((btn) => {
+    const isActive = btn.getAttribute("data-lang") === lang;
+    btn.classList.toggle("active", isActive);
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
   });
 
-  localStorage.setItem('selectedLanguage', lang);
+  localStorage.setItem("selectedLanguage", lang);
+  syncDarkmodeIcon();
+  syncMenuToggleAria();
 }
 
-langButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    applyLanguage(button.getAttribute('data-lang'));
+langButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applyLanguage(button.getAttribute("data-lang"));
   });
 });
 
 // ============================
-// 📅 FOOTER: AÑO ACTUAL
+// MENÚ MÓVIL
 // ============================
 
-const yearEl = document.getElementById('footer-year');
+const menuToggle = document.getElementById("menu-toggle");
+const navBackdrop = document.getElementById("nav-backdrop");
+
+function setNavOpen(open) {
+  document.body.classList.toggle("nav-open", open);
+  if (menuToggle) menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  if (navBackdrop) navBackdrop.hidden = !open;
+}
+
+function syncMenuToggleAria() {
+  if (!menuToggle) return;
+  const lang = localStorage.getItem("selectedLanguage") || "es";
+  const open = document.body.classList.contains("nav-open");
+  menuToggle.setAttribute(
+    "aria-label",
+    open
+      ? lang === "es"
+        ? "Cerrar menú"
+        : "Close menu"
+      : lang === "es"
+        ? "Abrir menú"
+        : "Open menu"
+  );
+}
+
+function initMobileNav() {
+  if (!menuToggle) return;
+
+  menuToggle.addEventListener("click", () => {
+    const next = !document.body.classList.contains("nav-open");
+    setNavOpen(next);
+    syncMenuToggleAria();
+  });
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener("click", () => {
+      setNavOpen(false);
+      syncMenuToggleAria();
+    });
+  }
+
+  document.querySelectorAll("#site-navigation .nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.matchMedia("(max-width: 640px)").matches) {
+        setNavOpen(false);
+        syncMenuToggleAria();
+      }
+    });
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.body.classList.contains("nav-open")) {
+      setNavOpen(false);
+      syncMenuToggleAria();
+      menuToggle.focus();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 641px)").matches) {
+      setNavOpen(false);
+      syncMenuToggleAria();
+    }
+  });
+
+  syncMenuToggleAria();
+}
+
+// ============================
+// FOOTER: AÑO
+// ============================
+
+const yearEl = document.getElementById("footer-year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // ============================
-// 👁️ SCROLL REVEAL (IntersectionObserver)
+// SCROLL REVEAL + SKILL BARS
 // ============================
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
 
-document.querySelectorAll('.section-reveal').forEach(el => {
-  revealObserver.observe(el);
-});
+const skillObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animated");
+        skillObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
 
-// ============================
-// 📊 SKILL BARS ANIMATION
-// ============================
-
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animated');
-      skillObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.skill-card').forEach(card => {
-  skillObserver.observe(card);
-});
+document.querySelectorAll(".section-reveal").forEach((el) => revealObserver.observe(el));
+document.querySelectorAll(".skill-card").forEach((el) => skillObserver.observe(el));
 
 // ============================
-// 📩 FORMULARIO
+// FORMULARIO
 // ============================
 
 const form = document.querySelector("#contact-form");
 const submitBtn = document.getElementById("submit-btn");
 const formMessageEl = document.getElementById("form-message");
+let formMessageHideTimer = null;
 
 function showFormMessage(text, type) {
   if (!formMessageEl) return;
+  if (formMessageHideTimer) {
+    clearTimeout(formMessageHideTimer);
+    formMessageHideTimer = null;
+  }
   formMessageEl.textContent = text;
   formMessageEl.className = `form-message ${type}`;
-  formMessageEl.style.display = 'flex';
-  // Auto-hide after 6s
-  setTimeout(() => {
-    formMessageEl.style.display = 'none';
+  formMessageEl.classList.remove("form-message--hidden");
+  formMessageHideTimer = setTimeout(() => {
+    formMessageEl.classList.add("form-message--hidden");
+    formMessageHideTimer = null;
   }, 6000);
 }
 
 function getMessages() {
-  const lang = localStorage.getItem('selectedLanguage') || 'es';
+  const lang = localStorage.getItem("selectedLanguage") || "es";
   const msgs = {
     es: {
       required: "Por favor, completa todos los campos obligatorios.",
@@ -132,7 +208,6 @@ function getMessages() {
       success: "✅ Mensaje enviado correctamente. ¡Gracias por contactarme!",
       error: "⚠️ Ocurrió un error al enviar. Intenta nuevamente.",
       network: "❌ No se pudo enviar. Verifica tu conexión e intenta otra vez.",
-      send: "Enviar mensaje",
     },
     en: {
       required: "Please fill in all required fields.",
@@ -144,8 +219,7 @@ function getMessages() {
       success: "✅ Message sent successfully. Thanks for reaching out!",
       error: "⚠️ An error occurred while sending. Please try again.",
       network: "❌ Could not send. Check your connection and try again.",
-      send: "Send message",
-    }
+    },
   };
   return msgs[lang] || msgs.es;
 }
@@ -155,44 +229,43 @@ if (form && submitBtn) {
     e.preventDefault();
     const m = getMessages();
 
-    const nombre  = form.nombre.value.trim();
+    const nombre = form.nombre.value.trim();
     const apellido = form.apellido.value.trim();
-    const email   = form.email.value.trim();
-    const asunto  = form.asunto.value.trim();
+    const email = form.email.value.trim();
+    const asunto = form.asunto.value.trim();
     const mensaje = form.mensaje.value.trim();
     const archivo = form.archivo.files[0];
 
     if (!nombre || !apellido || !email || !asunto || !mensaje) {
-      showFormMessage(m.required, 'error');
+      showFormMessage(m.required, "error");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      showFormMessage(m.email, 'error');
+      showFormMessage(m.email, "error");
       return;
     }
 
     if (archivo) {
       const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
       if (archivo.size > 5 * 1024 * 1024) {
-        showFormMessage(m.fileSize, 'error');
+        showFormMessage(m.fileSize, "error");
         return;
       }
       if (!allowedTypes.includes(archivo.type)) {
-        showFormMessage(m.fileType, 'error');
+        showFormMessage(m.fileType, "error");
         return;
       }
     }
 
-    if (typeof grecaptcha !== 'undefined' && !grecaptcha.getResponse()) {
-      showFormMessage(m.recaptcha, 'error');
+    if (typeof grecaptcha !== "undefined" && !grecaptcha.getResponse()) {
+      showFormMessage(m.recaptcha, "error");
       return;
     }
 
-    // Disable button while sending
     submitBtn.disabled = true;
-    const originalText = submitBtn.innerHTML;
+    const originalHTML = submitBtn.innerHTML;
     submitBtn.innerHTML = `<span>${m.sending}</span>`;
 
     try {
@@ -202,27 +275,31 @@ if (form && submitBtn) {
       });
 
       if (response.ok) {
-        showFormMessage(m.success, 'success');
+        showFormMessage(m.success, "success");
         form.reset();
-        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+        if (typeof grecaptcha !== "undefined") grecaptcha.reset();
       } else {
-        showFormMessage(m.error, 'error');
+        showFormMessage(m.error, "error");
       }
     } catch (error) {
       console.error("Error de conexión:", error);
-      showFormMessage(m.network, 'error');
+      showFormMessage(m.network, "error");
     } finally {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
+      submitBtn.innerHTML = originalHTML;
     }
   });
 }
 
 // ============================
-// 🚀 INIT
+// INIT
 // ============================
 
-window.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('selectedLanguage') || 'es';
+const darkBtn = document.getElementById("toggle-darkmode");
+if (darkBtn) darkBtn.addEventListener("click", toggleDarkMode);
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("selectedLanguage") || "es";
   applyLanguage(savedLang);
+  initMobileNav();
 });
