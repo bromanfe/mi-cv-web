@@ -730,13 +730,16 @@ section p {
    =========================== */
 .timeline {
   position: relative;
-  padding-left: 28px;
+  /* Eje de la línea y puntos alineados al mismo centro (evita desfase visual) */
+  --tl-pad: 32px;
+  --tl-axis: 15px;
+  padding-left: var(--tl-pad);
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 7px;
+  left: calc(var(--tl-axis) - 1px);
   top: 8px;
   bottom: 8px;
   width: 2px;
@@ -755,8 +758,9 @@ section p {
 
 .timeline-dot {
   position: absolute;
-  left: -24px;
   top: 50%;
+  /* Centro del círculo (ancho contenido 16px + borde 3px × 2 = 22px → mitad 11px) */
+  left: calc(var(--tl-axis) - var(--tl-pad) - 11px);
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
@@ -766,17 +770,6 @@ section p {
   box-shadow: 0 0 0 2px var(--gold);
   transition: background var(--transition), border-color var(--transition);
   z-index: 1;
-}
-
-/* Mismo acento dorado; ligeramente más pequeño para el último hito */
-.timeline-dot--sm {
-  width: 12px;
-  height: 12px;
-  left: -22px;
-  transform: translateY(-50%);
-  border-width: 2px;
-  background: var(--gold);
-  box-shadow: 0 0 0 2px var(--gold);
 }
 
 /* ===========================
