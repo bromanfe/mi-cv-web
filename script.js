@@ -179,6 +179,7 @@ const form = document.querySelector("#contact-form");
 const submitBtn = document.getElementById("submit-btn");
 const formMessageEl = document.getElementById("form-message");
 let formMessageHideTimer = null;
+const SAFE_GETFORM_HOST = "getform.io";
 
 function showFormMessage(text, type) {
   if (!formMessageEl) return;
@@ -229,6 +230,26 @@ if (form && submitBtn) {
     e.preventDefault();
     const m = getMessages();
 
+    // Evita que un cambio del atributo action (por inyección/edición DOM) envíe datos a otro destino.
+    let actionUrl = null;
+    try {
+      actionUrl = new URL(form.action);
+    } catch (_) {
+      actionUrl = null;
+    }
+
+    const looksLikeGetform =
+      actionUrl &&
+      actionUrl.protocol === "https:" &&
+      actionUrl.hostname === SAFE_GETFORM_HOST &&
+      actionUrl.pathname.startsWith("/f/") &&
+      actionUrl.pathname.length > "/f/".length;
+
+    if (!looksLikeGetform) {
+      showFormMessage(m.error, "error");
+      return;
+    }
+
     const nombre = form.nombre.value.trim();
     const apellido = form.apellido.value.trim();
     const email = form.email.value.trim();
@@ -266,7 +287,7 @@ if (form && submitBtn) {
 
     submitBtn.disabled = true;
     const originalHTML = submitBtn.innerHTML;
-    submitBtn.innerHTML = `<span>${m.sending}</span>`;
+    submitBtn.textContent = m.sending;
 
     try {
       const response = await fetch(form.action, {
