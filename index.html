@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="accelerometer=(), autoplay=(), camera=(), clipboard-read=(), clipboard-write=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), interest-cohort=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), usb=(), web-share=(), xr-spatial-tracking=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action https://getform.io; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://getform.io https://www.google.com https://www.gstatic.com; frame-src https://www.google.com; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action https://forminit.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://forminit.com https://www.google.com https://www.gstatic.com; frame-src 'self' https://www.google.com; upgrade-insecure-requests">
   <script>
     (function () {
       try {
@@ -444,7 +444,7 @@
           </ul>
         </div>
 
-        <form id="contact-form" action="https://getform.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" novalidate>
+        <form id="contact-form" action="https://forminit.com/f/bqoeyrzb" method="POST" enctype="multipart/form-data" novalidate>
           <div id="form-message" class="form-message form-message--hidden" role="alert" aria-live="polite"></div>
 
           <div class="form-row">
@@ -478,7 +478,7 @@
             <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
           </div>
 
-          <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY" aria-label="reCAPTCHA"></div>
+          <div class="g-recaptcha" data-sitekey="6LcqXdgrAAAAAEPz2u6spFPGkkDX_qTZQ4lDYMBI" aria-label="reCAPTCHA"></div>
 
           <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
             <span class="lang-es">Enviar mensaje</span>
@@ -500,7 +500,24 @@
     </p>
   </footer>
 
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    (function () {
+      try {
+        var el = document.querySelector(".g-recaptcha");
+        if (!el) return;
+        var key = el.getAttribute("data-sitekey");
+        if (!key || key === "YOUR_RECAPTCHA_SITE_KEY") {
+          el.style.display = "none";
+          return;
+        }
+        var s = document.createElement("script");
+        s.src = "https://www.google.com/recaptcha/api.js";
+        s.async = true;
+        s.defer = true;
+        document.body.appendChild(s);
+      } catch (e) {}
+    })();
+  </script>
   <script src="script.js" defer></script>
 </body>
 </html>
