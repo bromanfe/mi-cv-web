@@ -156,20 +156,29 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.12 }
 );
 
-const skillObserver = new IntersectionObserver(
+document.querySelectorAll(".section-reveal").forEach((el) => revealObserver.observe(el));
+
+// ============================
+// SCROLL-SPY NAV
+// ============================
+
+const spySections = document.querySelectorAll("section[id]");
+const spyLinks = document.querySelectorAll(".topbar-nav .nav-link");
+
+const spyObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("animated");
-        skillObserver.unobserve(entry.target);
+        spyLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
       }
     });
   },
-  { threshold: 0.3 }
+  { rootMargin: "-60px 0px -50% 0px", threshold: 0 }
 );
 
-document.querySelectorAll(".section-reveal").forEach((el) => revealObserver.observe(el));
-document.querySelectorAll(".skill-card").forEach((el) => skillObserver.observe(el));
+spySections.forEach((s) => spyObserver.observe(s));
 
 // ============================
 // FORMULARIO
@@ -202,8 +211,6 @@ function getMessages() {
     es: {
       required: "Por favor, completa todos los campos obligatorios.",
       email: "Por favor, ingresa un correo electrónico válido.",
-      fileSize: "El archivo no debe superar 5 MB.",
-      fileType: "Solo se permiten archivos PDF, JPG o PNG.",
       recaptcha: "Por favor, completa el reCAPTCHA antes de enviar.",
       notConfigured:
         "Formulario desactivado en esta versión pública. Configura el endpoint del formulario y reCAPTCHA para habilitar el envío.",
@@ -215,8 +222,6 @@ function getMessages() {
     en: {
       required: "Please fill in all required fields.",
       email: "Please enter a valid email address.",
-      fileSize: "File must not exceed 5 MB.",
-      fileType: "Only PDF, JPG, or PNG files are allowed.",
       recaptcha: "Please complete the reCAPTCHA before sending.",
       notConfigured:
         "Form disabled in this public version. Configure the form endpoint and reCAPTCHA to enable sending.",
@@ -265,7 +270,6 @@ if (form && submitBtn) {
     const email = form.email.value.trim();
     const asunto = form.asunto.value.trim();
     const mensaje = form.mensaje.value.trim();
-    const archivo = form.archivo.files[0];
 
     if (!nombre || !apellido || !email || !asunto || !mensaje) {
       showFormMessage(m.required, "error");
@@ -276,18 +280,6 @@ if (form && submitBtn) {
     if (!emailRegex.test(email)) {
       showFormMessage(m.email, "error");
       return;
-    }
-
-    if (archivo) {
-      const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
-      if (archivo.size > 5 * 1024 * 1024) {
-        showFormMessage(m.fileSize, "error");
-        return;
-      }
-      if (!allowedTypes.includes(archivo.type)) {
-        showFormMessage(m.fileType, "error");
-        return;
-      }
     }
 
     const recaptchaEl = document.querySelector(".g-recaptcha");
@@ -335,6 +327,11 @@ if (form && submitBtn) {
 
 const darkBtn = document.getElementById("toggle-darkmode");
 if (darkBtn) darkBtn.addEventListener("click", toggleDarkMode);
+
+const topbarEl = document.querySelector(".topbar");
+window.addEventListener("scroll", () => {
+  if (topbarEl) topbarEl.classList.toggle("topbar--scrolled", window.scrollY > 10);
+}, { passive: true });
 
 window.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("selectedLanguage") || "es";
