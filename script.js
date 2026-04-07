@@ -179,7 +179,7 @@ const form = document.querySelector("#contact-form");
 const submitBtn = document.getElementById("submit-btn");
 const formMessageEl = document.getElementById("form-message");
 let formMessageHideTimer = null;
-const SAFE_GETFORM_HOST = "getform.io";
+const SAFE_GETFORM_HOST = "forminit.com";
 
 function showFormMessage(text, type) {
   if (!formMessageEl) return;
@@ -205,6 +205,8 @@ function getMessages() {
       fileSize: "El archivo no debe superar 5 MB.",
       fileType: "Solo se permiten archivos PDF, JPG o PNG.",
       recaptcha: "Por favor, completa el reCAPTCHA antes de enviar.",
+      notConfigured:
+        "Formulario desactivado en esta versión pública. Configura el endpoint del formulario y reCAPTCHA para habilitar el envío.",
       sending: "Enviando...",
       success: "✅ Mensaje enviado correctamente. ¡Gracias por contactarme!",
       error: "⚠️ Ocurrió un error al enviar. Intenta nuevamente.",
@@ -216,6 +218,8 @@ function getMessages() {
       fileSize: "File must not exceed 5 MB.",
       fileType: "Only PDF, JPG, or PNG files are allowed.",
       recaptcha: "Please complete the reCAPTCHA before sending.",
+      notConfigured:
+        "Form disabled in this public version. Configure the form endpoint and reCAPTCHA to enable sending.",
       sending: "Sending...",
       success: "✅ Message sent successfully. Thanks for reaching out!",
       error: "⚠️ An error occurred while sending. Please try again.",
@@ -250,6 +254,12 @@ if (form && submitBtn) {
       return;
     }
 
+    // Si el repo está público con placeholders, no intentes enviar (evita 404 + reduce spam).
+    if (actionUrl.pathname.includes("YOUR_FORM_ID")) {
+      showFormMessage(m.notConfigured, "error");
+      return;
+    }
+
     const nombre = form.nombre.value.trim();
     const apellido = form.apellido.value.trim();
     const email = form.email.value.trim();
@@ -278,6 +288,13 @@ if (form && submitBtn) {
         showFormMessage(m.fileType, "error");
         return;
       }
+    }
+
+    const recaptchaEl = document.querySelector(".g-recaptcha");
+    const sitekey = recaptchaEl ? recaptchaEl.getAttribute("data-sitekey") : null;
+    if (sitekey === "YOUR_RECAPTCHA_SITE_KEY") {
+      showFormMessage(m.notConfigured, "error");
+      return;
     }
 
     if (typeof grecaptcha !== "undefined" && !grecaptcha.getResponse()) {
