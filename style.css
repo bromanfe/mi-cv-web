@@ -813,8 +813,9 @@ section p {
 }
 
 .tarjeta ul li {
-  position: relative;
-  padding-left: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   font-size: 0.93rem;
   color: var(--text-muted);
   line-height: 1.7;
@@ -825,11 +826,9 @@ section p {
 
 .tarjeta ul li::before {
   content: '→';
-  position: absolute;
-  left: 0;
+  flex-shrink: 0;
   color: var(--gold);
-  font-size: 0.8rem;
-  top: 3px;
+  font-size: 0.93rem;
 }
 
 /* ===========================
